@@ -1,0 +1,6 @@
+language: csharp
+install:
+- travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./JobAdsCheckoutSystem.sln
+script:
+- xbuild ./JobAdsCheckoutSystem.sln
+- mono ./packages/NUnit.ConsoleRunner*/tools/nunit3-console.exe ./JobAdsCheckoutSystemTest/bin/Debug/JobAdsCheckoutSystemTest.dll
