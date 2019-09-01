@@ -22,7 +22,7 @@ JobAdsCheckoutSystemTest <br/>
 
 Data of rules/products are stored under Json files.<br/>
 Repository pattern was followed to isolate the data access layer from the business logic layer.<br/>
-Two implantations of first discount rule were provide for BuyXGetYFree rule and only one for QuantityDiscount rule.<br/>
+Two implantations of first discount rule was provided for BuyXGetYFree rule and only one for QuantityDiscount rule.<br/>
 
 The system was designed to also justify the final price and map the applied rule and to handle real live complex scenarios.<br/> 
 
