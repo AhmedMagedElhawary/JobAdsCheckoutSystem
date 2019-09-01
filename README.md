@@ -29,4 +29,4 @@ The system was designed to also justify the final price and map the applied rule
 
 A copy was uploaded over GitHub repository: https://github.com/AhmedMagedElhawary/JobAdsCheckoutSystem
 Continuous integration was enabled via Travis-CI to check against Unit testing/Building errors.
-![Screenshot](ContinuousIntegration.jpg)
+![Screenshot](ContinuousIntegration.JPG)
