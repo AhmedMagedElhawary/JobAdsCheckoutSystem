@@ -2,7 +2,7 @@ This applcaition was developed using Microsoft Visual Studio 2017, .Net FrameWOr
 To download the farmework please click: https://go.microsoft.com/fwlink/?linkid=2099470
 
 A copy was uploaded to github repository: https://github.com/AhmedMagedElhawary/JobAdsCheckoutSystem
-Continuous integration was enabled via Travis-CI
+Continuous integration was enabled via Travis-CI to check against Unit testing
 
 
  
