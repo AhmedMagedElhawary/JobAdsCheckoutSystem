@@ -30,3 +30,21 @@ The system was designed to also justify the final price and map the applied rule
 ##### A copy was uploaded over GitHub repository: **https://github.com/AhmedMagedElhawary/JobAdsCheckoutSystem**
 ##### Continuous integration was enabled via Travis-CI to check against Unit testing/Building errors.
 ![Screenshot](ContinuousIntegration.JPG)
+
+---
+
+## Run on any platform
+
+### Dockerizing the solution
+
+The solution that I have created is now dockerized, making it easy for anyone to run on their machines, provided docker is supported on that OS.
+
+Here are the steps:
+
+- Verify that docker is installed in your machine and running via `docker -v` command
+- Run `docker build -t meego-app .` to create and tag the image from the local Dockerfile
+- Run `docker run --rm -dit meego-app:latest` to fire a container using the latest image built in the last step
+- Once the container is running, get into it using `docker exec -it ${CONTAINER_ID} /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"`. Just a hint container ID could be found out using `docker container ls`
+- You are almost there
+- Once inside the container run this command to execute the solution `cd JobAdsCheckoutSystem/bin/Release/ && mono JobAdsCheckoutSystem.exe`
+- Can you believe you eyes :O ?
