@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.539
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobAdsCheckoutSystem", "JobAdsCheckoutSystem\JobAdsCheckoutSystem.csproj", "{15FA4D86-D3FB-4036-81FF-AD1996E8F88C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobAdsCheckoutSystemTest", "JobAdsCheckoutSystemTest\JobAdsCheckoutSystemTest.csproj", "{6E9FA474-2F62-400B-9CB3-45129E804633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobAdsCheckoutSystemWeb", "JobAdsCheckoutSystemWeb\JobAdsCheckoutSystemWeb.csproj", "{BBE73663-1AE7-40D6-AB73-0198A3C804CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6E9FA474-2F62-400B-9CB3-45129E804633}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E9FA474-2F62-400B-9CB3-45129E804633}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E9FA474-2F62-400B-9CB3-45129E804633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBE73663-1AE7-40D6-AB73-0198A3C804CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBE73663-1AE7-40D6-AB73-0198A3C804CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBE73663-1AE7-40D6-AB73-0198A3C804CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBE73663-1AE7-40D6-AB73-0198A3C804CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
