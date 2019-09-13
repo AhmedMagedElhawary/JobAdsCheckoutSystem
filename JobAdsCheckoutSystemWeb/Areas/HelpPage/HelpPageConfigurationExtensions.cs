@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.IdAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
@@ -21,13 +21,13 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         private const string ApiModelPrefix = "MS_HelpPageApiModel_";
 
         /// <summary>
-        /// Sets the documentation provider for help page.
+        /// Sets the documentation provIder for help page.
         /// </summary>
         /// <param name="config">The <see cref="HttpConfiguration"/>.</param>
-        /// <param name="documentationProvider">The documentation provider.</param>
-        public static void SetDocumentationProvider(this HttpConfiguration config, IDocumentationProvider documentationProvider)
+        /// <param name="documentationProvIder">The documentation provIder.</param>
+        public static voId SetDocumentationProvIder(this HttpConfiguration config, IdocumentationProvIder documentationProvIder)
         {
-            config.Services.Replace(typeof(IDocumentationProvider), documentationProvider);
+            config.Services.Replace(typeof(IdocumentationProvIder), documentationProvIder);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// </summary>
         /// <param name="config">The <see cref="HttpConfiguration"/>.</param>
         /// <param name="sampleObjects">The sample objects.</param>
-        public static void SetSampleObjects(this HttpConfiguration config, IDictionary<Type, object> sampleObjects)
+        public static voId SetSampleObjects(this HttpConfiguration config, Idictionary<Type, object> sampleObjects)
         {
             config.GetHelpPageSampleGenerator().SampleObjects = sampleObjects;
         }
@@ -48,7 +48,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <param name="mediaType">The media type.</param>
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="actionName">Name of the action.</param>
-        public static void SetSampleRequest(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType, string controllerName, string actionName)
+        public static voId SetSampleRequest(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType, string controllerName, string actionName)
         {
             config.GetHelpPageSampleGenerator().ActionSamples.Add(new HelpPageSampleKey(mediaType, SampleDirection.Request, controllerName, actionName, new[] { "*" }), sample);
         }
@@ -62,7 +62,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="actionName">Name of the action.</param>
         /// <param name="parameterNames">The parameter names.</param>
-        public static void SetSampleRequest(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType, string controllerName, string actionName, params string[] parameterNames)
+        public static voId SetSampleRequest(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType, string controllerName, string actionName, params string[] parameterNames)
         {
             config.GetHelpPageSampleGenerator().ActionSamples.Add(new HelpPageSampleKey(mediaType, SampleDirection.Request, controllerName, actionName, parameterNames), sample);
         }
@@ -75,7 +75,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <param name="mediaType">The media type.</param>
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="actionName">Name of the action.</param>
-        public static void SetSampleResponse(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType, string controllerName, string actionName)
+        public static voId SetSampleResponse(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType, string controllerName, string actionName)
         {
             config.GetHelpPageSampleGenerator().ActionSamples.Add(new HelpPageSampleKey(mediaType, SampleDirection.Response, controllerName, actionName, new[] { "*" }), sample);
         }
@@ -89,7 +89,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="actionName">Name of the action.</param>
         /// <param name="parameterNames">The parameter names.</param>
-        public static void SetSampleResponse(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType, string controllerName, string actionName, params string[] parameterNames)
+        public static voId SetSampleResponse(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType, string controllerName, string actionName, params string[] parameterNames)
         {
             config.GetHelpPageSampleGenerator().ActionSamples.Add(new HelpPageSampleKey(mediaType, SampleDirection.Response, controllerName, actionName, parameterNames), sample);
         }
@@ -100,7 +100,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <param name="config">The <see cref="HttpConfiguration"/>.</param>
         /// <param name="sample">The sample.</param>
         /// <param name="mediaType">The media type.</param>
-        public static void SetSampleForMediaType(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType)
+        public static voId SetSampleForMediaType(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType)
         {
             config.GetHelpPageSampleGenerator().ActionSamples.Add(new HelpPageSampleKey(mediaType), sample);
         }
@@ -112,7 +112,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <param name="sample">The sample.</param>
         /// <param name="mediaType">The media type.</param>
         /// <param name="type">The parameter type or return type of an action.</param>
-        public static void SetSampleForType(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType, Type type)
+        public static voId SetSampleForType(this HttpConfiguration config, object sample, MediaTypeHeaderValue mediaType, Type type)
         {
             config.GetHelpPageSampleGenerator().ActionSamples.Add(new HelpPageSampleKey(mediaType, type), sample);
         }
@@ -125,7 +125,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <param name="type">The type.</param>
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="actionName">Name of the action.</param>
-        public static void SetActualRequestType(this HttpConfiguration config, Type type, string controllerName, string actionName)
+        public static voId SetActualRequestType(this HttpConfiguration config, Type type, string controllerName, string actionName)
         {
             config.GetHelpPageSampleGenerator().ActualHttpMessageTypes.Add(new HelpPageSampleKey(SampleDirection.Request, controllerName, actionName, new[] { "*" }), type);
         }
@@ -139,7 +139,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="actionName">Name of the action.</param>
         /// <param name="parameterNames">The parameter names.</param>
-        public static void SetActualRequestType(this HttpConfiguration config, Type type, string controllerName, string actionName, params string[] parameterNames)
+        public static voId SetActualRequestType(this HttpConfiguration config, Type type, string controllerName, string actionName, params string[] parameterNames)
         {
             config.GetHelpPageSampleGenerator().ActualHttpMessageTypes.Add(new HelpPageSampleKey(SampleDirection.Request, controllerName, actionName, parameterNames), type);
         }
@@ -152,7 +152,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <param name="type">The type.</param>
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="actionName">Name of the action.</param>
-        public static void SetActualResponseType(this HttpConfiguration config, Type type, string controllerName, string actionName)
+        public static voId SetActualResponseType(this HttpConfiguration config, Type type, string controllerName, string actionName)
         {
             config.GetHelpPageSampleGenerator().ActualHttpMessageTypes.Add(new HelpPageSampleKey(SampleDirection.Response, controllerName, actionName, new[] { "*" }), type);
         }
@@ -166,7 +166,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="actionName">Name of the action.</param>
         /// <param name="parameterNames">The parameter names.</param>
-        public static void SetActualResponseType(this HttpConfiguration config, Type type, string controllerName, string actionName, params string[] parameterNames)
+        public static voId SetActualResponseType(this HttpConfiguration config, Type type, string controllerName, string actionName, params string[] parameterNames)
         {
             config.GetHelpPageSampleGenerator().ActualHttpMessageTypes.Add(new HelpPageSampleKey(SampleDirection.Response, controllerName, actionName, parameterNames), type);
         }
@@ -188,7 +188,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// </summary>
         /// <param name="config">The <see cref="HttpConfiguration"/>.</param>
         /// <param name="sampleGenerator">The help page sample generator.</param>
-        public static void SetHelpPageSampleGenerator(this HttpConfiguration config, HelpPageSampleGenerator sampleGenerator)
+        public static voId SetHelpPageSampleGenerator(this HttpConfiguration config, HelpPageSampleGenerator sampleGenerator)
         {
             config.Properties.AddOrUpdate(
                 typeof(HelpPageSampleGenerator),
@@ -212,21 +212,21 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
         /// </summary>
         /// <param name="config">The <see cref="HttpConfiguration"/>.</param>
-        /// <param name="apiDescriptionId">The <see cref="ApiDescription"/> ID.</param>
+        /// <param name="apIdescriptionId">The <see cref="ApIdescription"/> Id.</param>
         /// <returns>
         /// An <see cref="HelpPageApiModel"/>
         /// </returns>
-        public static HelpPageApiModel GetHelpPageApiModel(this HttpConfiguration config, string apiDescriptionId)
+        public static HelpPageApiModel GetHelpPageApiModel(this HttpConfiguration config, string apIdescriptionId)
         {
             object model;
-            string modelId = ApiModelPrefix + apiDescriptionId;
+            string modelId = ApiModelPrefix + apIdescriptionId;
             if (!config.Properties.TryGetValue(modelId, out model))
             {
-                Collection<ApiDescription> apiDescriptions = config.Services.GetApiExplorer().ApiDescriptions;
-                ApiDescription apiDescription = apiDescriptions.FirstOrDefault(api => String.Equals(api.GetFriendlyId(), apiDescriptionId, StringComparison.OrdinalIgnoreCase));
-                if (apiDescription != null)
+                Collection<ApIdescription> apIdescriptions = config.Services.GetApiExplorer().ApIdescriptions;
+                ApIdescription apIdescription = apIdescriptions.FirstOrDefault(api => String.Equals(api.GetFriendlyId(), apIdescriptionId, StringComparison.OrdinalIgnoreCase));
+                if (apIdescription != null)
                 {
-                    model = GenerateApiModel(apiDescription, config);
+                    model = GenerateApiModel(apIdescription, config);
                     config.Properties.TryAdd(modelId, model);
                 }
             }
@@ -234,11 +234,11 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
             return (HelpPageApiModel)model;
         }
 
-        private static HelpPageApiModel GenerateApiModel(ApiDescription apiDescription, HttpConfiguration config)
+        private static HelpPageApiModel GenerateApiModel(ApIdescription apIdescription, HttpConfiguration config)
         {
             HelpPageApiModel apiModel = new HelpPageApiModel()
             {
-                ApiDescription = apiDescription,
+                ApIdescription = apIdescription,
             };
 
             ModelDescriptionGenerator modelGenerator = config.GetModelDescriptionGenerator();
@@ -251,10 +251,10 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
             return apiModel;
         }
 
-        private static void GenerateUriParameters(HelpPageApiModel apiModel, ModelDescriptionGenerator modelGenerator)
+        private static voId GenerateUriParameters(HelpPageApiModel apiModel, ModelDescriptionGenerator modelGenerator)
         {
-            ApiDescription apiDescription = apiModel.ApiDescription;
-            foreach (ApiParameterDescription apiParameter in apiDescription.ParameterDescriptions)
+            ApIdescription apIdescription = apiModel.ApIdescription;
+            foreach (ApiParameterDescription apiParameter in apIdescription.ParameterDescriptions)
             {
                 if (apiParameter.Source == ApiParameterSource.FromUri)
                 {
@@ -351,10 +351,10 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
             return parameterDescription;
         }
 
-        private static void GenerateRequestModelDescription(HelpPageApiModel apiModel, ModelDescriptionGenerator modelGenerator, HelpPageSampleGenerator sampleGenerator)
+        private static voId GenerateRequestModelDescription(HelpPageApiModel apiModel, ModelDescriptionGenerator modelGenerator, HelpPageSampleGenerator sampleGenerator)
         {
-            ApiDescription apiDescription = apiModel.ApiDescription;
-            foreach (ApiParameterDescription apiParameter in apiDescription.ParameterDescriptions)
+            ApIdescription apIdescription = apiModel.ApIdescription;
+            foreach (ApiParameterDescription apiParameter in apIdescription.ParameterDescriptions)
             {
                 if (apiParameter.Source == ApiParameterSource.FromBody)
                 {
@@ -365,7 +365,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
                 else if (apiParameter.ParameterDescriptor != null &&
                     apiParameter.ParameterDescriptor.ParameterType == typeof(HttpRequestMessage))
                 {
-                    Type parameterType = sampleGenerator.ResolveHttpRequestMessageType(apiDescription);
+                    Type parameterType = sampleGenerator.ResolveHttpRequestMessageType(apIdescription);
 
                     if (parameterType != null)
                     {
@@ -375,31 +375,31 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
             }
         }
 
-        private static void GenerateResourceDescription(HelpPageApiModel apiModel, ModelDescriptionGenerator modelGenerator)
+        private static voId GenerateResourceDescription(HelpPageApiModel apiModel, ModelDescriptionGenerator modelGenerator)
         {
-            ResponseDescription response = apiModel.ApiDescription.ResponseDescription;
+            ResponseDescription response = apiModel.ApIdescription.ResponseDescription;
             Type responseType = response.ResponseType ?? response.DeclaredType;
-            if (responseType != null && responseType != typeof(void))
+            if (responseType != null && responseType != typeof(voId))
             {
                 apiModel.ResourceDescription = modelGenerator.GetOrCreateModelDescription(responseType);
             }
         }
 
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "The exception is recorded as ErrorMessages.")]
-        private static void GenerateSamples(HelpPageApiModel apiModel, HelpPageSampleGenerator sampleGenerator)
+        private static voId GenerateSamples(HelpPageApiModel apiModel, HelpPageSampleGenerator sampleGenerator)
         {
             try
             {
-                foreach (var item in sampleGenerator.GetSampleRequests(apiModel.ApiDescription))
+                foreach (var item in sampleGenerator.GetSampleRequests(apiModel.ApIdescription))
                 {
                     apiModel.SampleRequests.Add(item.Key, item.Value);
-                    LogInvalidSampleAsError(apiModel, item.Value);
+                    LogInvalIdSampleAsError(apiModel, item.Value);
                 }
 
-                foreach (var item in sampleGenerator.GetSampleResponses(apiModel.ApiDescription))
+                foreach (var item in sampleGenerator.GetSampleResponses(apiModel.ApIdescription))
                 {
                     apiModel.SampleResponses.Add(item.Key, item.Value);
-                    LogInvalidSampleAsError(apiModel, item.Value);
+                    LogInvalIdSampleAsError(apiModel, item.Value);
                 }
             }
             catch (Exception e)
@@ -410,9 +410,9 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
             }
         }
 
-        private static bool TryGetResourceParameter(ApiDescription apiDescription, HttpConfiguration config, out ApiParameterDescription parameterDescription, out Type resourceType)
+        private static bool TryGetResourceParameter(ApIdescription apIdescription, HttpConfiguration config, out ApiParameterDescription parameterDescription, out Type resourceType)
         {
-            parameterDescription = apiDescription.ParameterDescriptions.FirstOrDefault(
+            parameterDescription = apIdescription.ParameterDescriptions.FirstOrDefault(
                 p => p.Source == ApiParameterSource.FromBody ||
                     (p.ParameterDescriptor != null && p.ParameterDescriptor.ParameterType == typeof(HttpRequestMessage)));
 
@@ -427,7 +427,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
             if (resourceType == typeof(HttpRequestMessage))
             {
                 HelpPageSampleGenerator sampleGenerator = config.GetHelpPageSampleGenerator();
-                resourceType = sampleGenerator.ResolveHttpRequestMessageType(apiDescription);
+                resourceType = sampleGenerator.ResolveHttpRequestMessageType(apIdescription);
             }
 
             if (resourceType == null)
@@ -442,8 +442,8 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         private static ModelDescriptionGenerator InitializeModelDescriptionGenerator(HttpConfiguration config)
         {
             ModelDescriptionGenerator modelGenerator = new ModelDescriptionGenerator(config);
-            Collection<ApiDescription> apis = config.Services.GetApiExplorer().ApiDescriptions;
-            foreach (ApiDescription api in apis)
+            Collection<ApIdescription> apis = config.Services.GetApiExplorer().ApIdescriptions;
+            foreach (ApIdescription api in apis)
             {
                 ApiParameterDescription parameterDescription;
                 Type parameterType;
@@ -455,12 +455,12 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
             return modelGenerator;
         }
 
-        private static void LogInvalidSampleAsError(HelpPageApiModel apiModel, object sample)
+        private static voId LogInvalIdSampleAsError(HelpPageApiModel apiModel, object sample)
         {
-            InvalidSample invalidSample = sample as InvalidSample;
-            if (invalidSample != null)
+            InvalIdSample invalIdSample = sample as InvalIdSample;
+            if (invalIdSample != null)
             {
-                apiModel.ErrorMessages.Add(invalidSample.ErrorMessage);
+                apiModel.ErrorMessages.Add(invalIdSample.ErrorMessage);
             }
         }
     }

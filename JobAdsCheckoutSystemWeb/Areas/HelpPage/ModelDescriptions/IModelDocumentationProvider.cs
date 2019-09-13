@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
 {
-    public interface IModelDocumentationProvider
+    public interface IModelDocumentationProvIder
     {
         string GetDocumentation(MemberInfo member);
 

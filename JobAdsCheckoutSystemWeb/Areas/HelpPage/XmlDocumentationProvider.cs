@@ -10,9 +10,9 @@ using JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions;
 namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
 {
     /// <summary>
-    /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+    /// A custom <see cref="IdocumentationProvIder"/> that reads the API documentation from an XML documentation file.
     /// </summary>
-    public class XmlDocumentationProvider : IDocumentationProvider, IModelDocumentationProvider
+    public class XmlDocumentationProvIder : IdocumentationProvIder, IModelDocumentationProvIder
     {
         private XPathNavigator _documentNavigator;
         private const string TypeExpression = "/doc/members/member[@name='T:{0}']";
@@ -22,10 +22,10 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         private const string ParameterExpression = "param[@name='{0}']";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="XmlDocumentationProvider"/> class.
+        /// Initializes a new instance of the <see cref="XmlDocumentationProvIder"/> class.
         /// </summary>
         /// <param name="documentPath">The physical path to XML document.</param>
-        public XmlDocumentationProvider(string documentPath)
+        public XmlDocumentationProvIder(string documentPath)
         {
             if (documentPath == null)
             {

@@ -23,9 +23,9 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.Models
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="ApiDescription"/> that describes the API.
+        /// Gets or sets the <see cref="ApIdescription"/> that describes the API.
         /// </summary>
-        public ApiDescription ApiDescription { get; set; }
+        public ApIdescription ApIdescription { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="ParameterDescription"/> collection that describes the URI parameters for the API.
@@ -72,12 +72,12 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.Models
         /// <summary>
         /// Gets the sample requests associated with the API.
         /// </summary>
-        public IDictionary<MediaTypeHeaderValue, object> SampleRequests { get; private set; }
+        public Idictionary<MediaTypeHeaderValue, object> SampleRequests { get; private set; }
 
         /// <summary>
         /// Gets the sample responses associated with the API.
         /// </summary>
-        public IDictionary<MediaTypeHeaderValue, object> SampleResponses { get; private set; }
+        public Idictionary<MediaTypeHeaderValue, object> SampleResponses { get; private set; }
 
         /// <summary>
         /// Gets the error messages associated with this model.

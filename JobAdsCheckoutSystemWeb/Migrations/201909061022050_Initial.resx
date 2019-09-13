@@ -20,10 +20,10 @@
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
     <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
+        <value>[base64 mime enIdd serialized .NET Framework object]</value>
     </data>
     <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <value>[base64 mime enIdd string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
                 
@@ -47,19 +47,19 @@
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
+            : and then enIdd with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
+            : and then enIdd with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
     value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
+            : and then enIdd with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema Id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Target" xml:space="preserve">
-    <value>H4sIAAAAAAAEAM1X227bOBB9X6D/IPCpBVIzSV92A7mFaydFduskqNL2maLGNlGKVHkJ7G/bh/2k/YWOrLt8b7uLIkAgj2bOnBnOhfr373/CN8tUBk9grNBqSC4G5yQAxXUi1HxIvJu9/J28ef3st/A6SZfBp0rvVa6HlsoOycK57IpSyxeQMjtIBTfa6pkbcJ1Slmh6eX7+B724oIAQBLGCIPzglRMprH/gz7FWHDLnmZzqBKQt5fgmWqMGdywFmzEOQ/KnjkeJHS+Af9HeRSvrIP0M8WDCHCPBSAqGnCKQMxIwpbRjDhlffbQQOaPVPMpQwOTjKgPUmzFpoYzkqlE/Nqjzyzwo2hhWUNxbp9MTAS9elVmiffPvyjWps4h5vMZ8u1Ue9TqXQ/JgdOK5I0Hf19VYmlxvd6aLMxqUCGfBDr2zulywqvK/s2DspfMGhgq8M0yeBQ8+loL/BatH/QXUUHkp27SROL7rCFCEjjMwbvUBZmUwtwkJaNeO9g1rs5ZNEec7L/D5Dn2zWEJdFHSvef6/AsDKwnYhwZQt34Oau8WQ4CMJbsQSkkpSon5UArsLjZzxB508GMFrLxONyYKTiU7AciOyooz+Y763dsSdeKopv9VaAlMHOIe0qc7NmsXZ4JhQYEofoyybxLkQltuqFxu9LGBbcu4yLkAjcN0+sCRoSBTzY1C3yDayNa1mVtFiWFVDje6YauGUZRnmvzXlSkkQFSNu/DI6vePTAoNyu6Xxa7a1J6cNm0PvLbpGpjfCWJeP05jlRzVO0g21ziHsSHDlqpfnfjc3aa8M8ufCaN+sr4+nB9ik8wYjTEG5dbBQ82pm34bleuEwycyWWTHW0qdq17zZZ12MirZ9ITkeoZwDbYhSdDxGZw60kTovjsdrer2TmVq6iRTS3sH0S4Fu1EJvpvdra19f9lVq73V/9vowLHvi8BVko0kKFRJgip5EkjdIUatFoUZf5VgKjLdRmDIlZmBdsfYI7v7L3t3l17lHUGsTedxl4n9f3V6Jrx4wo8hoJsD80BpXT8zwBTPPU7Z80UY6eVXPpGbuZ2zqH6LU38axOMTptE28uSuOWrX7Nm3RSEOSxBpZFzybDf2de3izr0Pa/gAJMfFi3kDknyMKeH4ODWilc6tmusozhtZmVKn0jmEKjiWYoZHBGmXc4WsO1q5vYJ+Y9KhyncaQ3Kp77zLvRtZCGstVO96Q7ve/vmx0OYf360qyPyMEpCkwBLhXb72QSc37ZksJ7YDIi+UdoHw9iPAGinDzVY10p9WRQGX6JpCByvv+EdJMIpi9VxHLi/10bnhnfA9zxlfVeN4NcvggumkPJ4LNDUttidHY5x/VNP+qfv0NaJXB7YcPAAA=</value>
+    <value>H4sIAAAAAAAEAM1X227bOBB9X6D/IPCpBVIzSV92A7mFaydFduskqNL2maLGNlGKVHkJ7G/bh/2k/YWOrLt8b7uLIkAgj2bOnBnOhfr373/CN8tUBk9grNBqSC4G5yQAxXUi1HxIvJu9/J28ef3st/A6SZfBp0rvVa6HlsoOycK57IpSyxeQMjtIBTfa6pkbcJ1Slmh6eX7+B724oIAQBLGCIPzglRMprH/gz7FWHDLnmZzqBKQt5fgmWqMGdywFmzEOQ/KnjkeJHS+Af9HeRSvrIP0M8WDCHCPBSAqGnCKQMxIwpbRjDhlffbQQOaPVPMpQwOTjKgPUmzFpoYzkqlE/Nqjzyzwo2hhWUNxbp9MTAS9elVmiffPvyjWps4h5vMZ8u1Ue9TqXQ/JgdOK5I0Hf19VYmlxvd6aLMxqUCGfBDr2zulywqvK/s2DspfMGhgq8M0yeBQ8+loL/BatH/QXUUHkp27SROL7rCFCEjjMwbvUBZmUwtwkJaNeO9g1rs5ZNEec7L/D5Dn2zWEJdFHSvef6/AsDKwnYhwZQt34Oau8WQ4CMJbsQSkkpSon5UArsLjZzxB508GMFrLxONyYKTiU7AciOyooz+Y763dsSdeKopv9VaAlMHOIe0qc7NmsXZ4JhQYEofoyybxLkQltuqFxu9LGBbcu4yLkAjcN0+sCRoSBTzY1C3yDayNa1mVtFiWFVDje6YauGUZRnmvzXlSkkQFSNu/DI6vePTAoNyu6Xxa7a1J6cNm0PvLbpGpjfCWJeP05jlRzVO0g21ziHsSHDlqpfnfjc3aa8M8ufCaN+sr4+nB9ik8wYjTEG5dbBQ82pm34bleuEwycyWWTHW0qdq17zZZ12MirZ9ITkeoZwDbYhSdDxGZw60kTovjsdrer2TmVq6iRTS3sH0S4Fu1EJvpvdra19f9lVq73V/9vowLHvi8BVko0kKFRJgip5EkjdIUatFoUZf5VgKjLdRmDIlZmBdsfYI7v7L3t3l17lHUGsTedxl4n9f3V6Jrx4wo8hoJsD80BpXT8zwBTPPU7Z80UY6eVXPpGbuZ2zqH6LU38axOMTptE28uSuOWrX7Nm3RSEOSxBpZFzybDf2de3izr0Pa/gAJMfFi3kDknyMKeH4ODWilc6tmusozhtZmVKn0jmEKjiWYoZHBGmXc4WsO1q5vYJ+Y9KhyncaQ3Kp77zLvRtZCGstVO96Q7ve/vmx0OYf360qyPyMEpCkwBLhXb72QSc37ZksJ7YDIi+UdoHw9iPAGinDzVY10p9WRQGX6JpCByvv+EdJMIpi9VxHLi/10bnhnfA9zxlfVeN4NcvggumkPJ4LNDUttIdHY5x/VNP+qfv0NaJXB7YcPAAA=</value>
   </data>
   <data name="DefaultSchema" xml:space="preserve">
     <value>dbo</value>

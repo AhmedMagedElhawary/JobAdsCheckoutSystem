@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.IdAnalysis;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -37,17 +37,17 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <summary>
         /// Gets CLR types that are used as the content of <see cref="HttpRequestMessage"/> or <see cref="HttpResponseMessage"/>.
         /// </summary>
-        public IDictionary<HelpPageSampleKey, Type> ActualHttpMessageTypes { get; internal set; }
+        public Idictionary<HelpPageSampleKey, Type> ActualHttpMessageTypes { get; internal set; }
 
         /// <summary>
         /// Gets the objects that are used directly as samples for certain actions.
         /// </summary>
-        public IDictionary<HelpPageSampleKey, object> ActionSamples { get; internal set; }
+        public Idictionary<HelpPageSampleKey, object> ActionSamples { get; internal set; }
 
         /// <summary>
         /// Gets the objects that are serialized as samples by the supported formatters.
         /// </summary>
-        public IDictionary<Type, object> SampleObjects { get; internal set; }
+        public Idictionary<Type, object> SampleObjects { get; internal set; }
 
         /// <summary>
         /// Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
@@ -55,28 +55,28 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// </summary>
         /// <remarks>
         /// Collection includes just <see cref="ObjectGenerator.GenerateObject(Type)"/> initially. Use
-        /// <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
-        /// <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        /// <Id>SampleObjectFactories.Insert(0, func)</Id> to provIde an overrIde and
+        /// <Id>SampleObjectFactories.Add(func)</Id> to provIde a fallback.</remarks>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures",
             Justification = "This is an appropriate nesting of generic types")]
         public IList<Func<HelpPageSampleGenerator, Type, object>> SampleObjectFactories { get; private set; }
 
         /// <summary>
-        /// Gets the request body samples for a given <see cref="ApiDescription"/>.
+        /// Gets the request body samples for a given <see cref="ApIdescription"/>.
         /// </summary>
-        /// <param name="api">The <see cref="ApiDescription"/>.</param>
+        /// <param name="api">The <see cref="ApIdescription"/>.</param>
         /// <returns>The samples keyed by media type.</returns>
-        public IDictionary<MediaTypeHeaderValue, object> GetSampleRequests(ApiDescription api)
+        public Idictionary<MediaTypeHeaderValue, object> GetSampleRequests(ApIdescription api)
         {
             return GetSample(api, SampleDirection.Request);
         }
 
         /// <summary>
-        /// Gets the response body samples for a given <see cref="ApiDescription"/>.
+        /// Gets the response body samples for a given <see cref="ApIdescription"/>.
         /// </summary>
-        /// <param name="api">The <see cref="ApiDescription"/>.</param>
+        /// <param name="api">The <see cref="ApIdescription"/>.</param>
         /// <returns>The samples keyed by media type.</returns>
-        public IDictionary<MediaTypeHeaderValue, object> GetSampleResponses(ApiDescription api)
+        public Idictionary<MediaTypeHeaderValue, object> GetSampleResponses(ApIdescription api)
         {
             return GetSample(api, SampleDirection.Response);
         }
@@ -84,10 +84,10 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <summary>
         /// Gets the request or response body samples.
         /// </summary>
-        /// <param name="api">The <see cref="ApiDescription"/>.</param>
+        /// <param name="api">The <see cref="ApIdescription"/>.</param>
         /// <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
         /// <returns>The samples keyed by media type.</returns>
-        public virtual IDictionary<MediaTypeHeaderValue, object> GetSample(ApiDescription api, SampleDirection sampleDirection)
+        public virtual Idictionary<MediaTypeHeaderValue, object> GetSample(ApIdescription api, SampleDirection sampleDirection)
         {
             if (api == null)
             {
@@ -100,7 +100,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
             Type type = ResolveType(api, controllerName, actionName, parameterNames, sampleDirection, out formatters);
             var samples = new Dictionary<MediaTypeHeaderValue, object>();
 
-            // Use the samples provided directly for actions
+            // Use the samples provIded directly for actions
             var actionSamples = GetAllActionSamples(controllerName, actionName, parameterNames, sampleDirection);
             foreach (var actionSample in actionSamples)
             {
@@ -136,7 +136,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         }
 
         /// <summary>
-        /// Search for samples that are provided directly through <see cref="ActionSamples"/>.
+        /// Search for samples that are provIded directly through <see cref="ActionSamples"/>.
         /// </summary>
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="actionName">Name of the action.</param>
@@ -150,10 +150,10 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         {
             object sample;
 
-            // First, try to get the sample provided for the specified mediaType, sampleDirection, controllerName, actionName and parameterNames.
-            // If not found, try to get the sample provided for the specified mediaType, sampleDirection, controllerName and actionName regardless of the parameterNames.
-            // If still not found, try to get the sample provided for the specified mediaType and type.
-            // Finally, try to get the sample provided for the specified mediaType.
+            // First, try to get the sample provIded for the specified mediaType, sampleDirection, controllerName, actionName and parameterNames.
+            // If not found, try to get the sample provIded for the specified mediaType, sampleDirection, controllerName and actionName regardless of the parameterNames.
+            // If still not found, try to get the sample provIded for the specified mediaType and type.
+            // Finally, try to get the sample provIded for the specified mediaType.
             if (ActionSamples.TryGetValue(new HelpPageSampleKey(mediaType, sampleDirection, controllerName, actionName, parameterNames), out sample) ||
                 ActionSamples.TryGetValue(new HelpPageSampleKey(mediaType, sampleDirection, controllerName, actionName, new[] { "*" }), out sample) ||
                 ActionSamples.TryGetValue(new HelpPageSampleKey(mediaType, type), out sample) ||
@@ -210,9 +210,9 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <summary>
         /// Resolves the actual type of <see cref="System.Net.Http.ObjectContent{T}"/> passed to the <see cref="System.Net.Http.HttpRequestMessage"/> in an action.
         /// </summary>
-        /// <param name="api">The <see cref="ApiDescription"/>.</param>
+        /// <param name="api">The <see cref="ApIdescription"/>.</param>
         /// <returns>The type.</returns>
-        public virtual Type ResolveHttpRequestMessageType(ApiDescription api)
+        public virtual Type ResolveHttpRequestMessageType(ApIdescription api)
         {
             string controllerName = api.ActionDescriptor.ControllerDescriptor.ControllerName;
             string actionName = api.ActionDescriptor.ActionName;
@@ -224,18 +224,18 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <summary>
         /// Resolves the type of the action parameter or return value when <see cref="HttpRequestMessage"/> or <see cref="HttpResponseMessage"/> is used.
         /// </summary>
-        /// <param name="api">The <see cref="ApiDescription"/>.</param>
+        /// <param name="api">The <see cref="ApIdescription"/>.</param>
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="actionName">Name of the action.</param>
         /// <param name="parameterNames">The parameter names.</param>
         /// <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
         /// <param name="formatters">The formatters.</param>
-        [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", Justification = "This is only used in advanced scenarios.")]
-        public virtual Type ResolveType(ApiDescription api, string controllerName, string actionName, IEnumerable<string> parameterNames, SampleDirection sampleDirection, out Collection<MediaTypeFormatter> formatters)
+        [SuppressMessage("Microsoft.Design", "CA1021:AvoIdOutParameters", Justification = "This is only used in advanced scenarios.")]
+        public virtual Type ResolveType(ApIdescription api, string controllerName, string actionName, IEnumerable<string> parameterNames, SampleDirection sampleDirection, out Collection<MediaTypeFormatter> formatters)
         {
             if (!Enum.IsDefined(typeof(SampleDirection), sampleDirection))
             {
-                throw new InvalidEnumArgumentException("sampleDirection", (int)sampleDirection, typeof(SampleDirection));
+                throw new InvalIdEnumArgumentException("sampleDirection", (int)sampleDirection, typeof(SampleDirection));
             }
             if (api == null)
             {
@@ -284,7 +284,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// <param name="type">The type.</param>
         /// <param name="mediaType">Type of the media.</param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "The exception is recorded as InvalidSample.")]
+        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "The exception is recorded as InvalIdSample.")]
         public virtual object WriteSampleObjectUsingFormatter(MediaTypeFormatter formatter, object value, Type type, MediaTypeHeaderValue mediaType)
         {
             if (formatter == null)
@@ -322,7 +322,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
                 }
                 else
                 {
-                    sample = new InvalidSample(String.Format(
+                    sample = new InvalIdSample(String.Format(
                         CultureInfo.CurrentCulture,
                         "Failed to generate the sample for media type '{0}'. Cannot use formatter '{1}' to write type '{2}'.",
                         mediaType,
@@ -332,7 +332,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
             }
             catch (Exception e)
             {
-                sample = new InvalidSample(String.Format(
+                sample = new InvalIdSample(String.Format(
                     CultureInfo.CurrentCulture,
                     "An exception has occurred while using the formatter '{0}' to generate sample for media type '{1}'. Exception message: {2}",
                     formatter.GetType().Name,

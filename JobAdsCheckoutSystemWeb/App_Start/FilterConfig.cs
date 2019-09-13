@@ -5,7 +5,7 @@ namespace JobAdsCheckoutSystemWeb
 {
 	public class FilterConfig
 	{
-		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+		public static voId RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 			filters.Add(new HandleErrorAttribute());
 		}

@@ -5,14 +5,14 @@ using System.Web.Http.Description;
 
 namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
 {
-    public static class ApiDescriptionExtensions
+    public static class ApIdescriptionExtensions
     {
         /// <summary>
-        /// Generates an URI-friendly ID for the <see cref="ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+        /// Generates an URI-friendly Id for the <see cref="ApIdescription"/>. E.g. "Get-Values-Id_name" instead of "GetValues/{Id}?name={name}"
         /// </summary>
-        /// <param name="description">The <see cref="ApiDescription"/>.</param>
-        /// <returns>The ID as a string.</returns>
-        public static string GetFriendlyId(this ApiDescription description)
+        /// <param name="description">The <see cref="ApIdescription"/>.</param>
+        /// <returns>The Id as a string.</returns>
+        public static string GetFriendlyId(this ApIdescription description)
         {
             string path = description.RelativePath;
             string[] urlParts = path.Split('?');

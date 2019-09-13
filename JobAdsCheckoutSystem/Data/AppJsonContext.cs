@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Text;
 
-namespace JobAdsCheckoutSystem.Resources
+namespace JobAdsCheckoutSystem.Data
 {
-	class JsonService
+	class AppJsonContext
 	{
 		public static IEnumerable<dynamic> JsonResourceDeserializer(byte[] JsonResourceFile)
 		{

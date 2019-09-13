@@ -9,7 +9,7 @@ namespace JobAdsCheckoutSystemWeb.Data
 {
 	public class AppDbContext : DbContext
 	{
-		public AppDbContext() : base("name=ProductsDB")
+		public AppDbContext() : base("name=JobAdsCheckoutSystemDB")
 		{
 
 		}

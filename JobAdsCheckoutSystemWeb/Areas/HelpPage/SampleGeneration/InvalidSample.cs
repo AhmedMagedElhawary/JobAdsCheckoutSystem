@@ -3,11 +3,11 @@ using System;
 namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
 {
     /// <summary>
-    /// This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+    /// This represents an invalId sample on the help page. There's a display template named InvalIdSample associated with this class.
     /// </summary>
-    public class InvalidSample
+    public class InvalIdSample
     {
-        public InvalidSample(string errorMessage)
+        public InvalIdSample(string errorMessage)
         {
             if (errorMessage == null)
             {
@@ -18,18 +18,18 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
 
         public string ErrorMessage { get; private set; }
 
-        public override bool Equals(object obj)
+        public overrIde bool Equals(object obj)
         {
-            InvalidSample other = obj as InvalidSample;
+            InvalIdSample other = obj as InvalIdSample;
             return other != null && ErrorMessage == other.ErrorMessage;
         }
 
-        public override int GetHashCode()
+        public overrIde int GetHashId()
         {
-            return ErrorMessage.GetHashCode();
+            return ErrorMessage.GetHashId();
         }
 
-        public override string ToString()
+        public overrIde string ToString()
         {
             return ErrorMessage;
         }

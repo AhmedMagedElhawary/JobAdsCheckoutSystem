@@ -1,9 +1,9 @@
 [
 	{
-		"ID": "1",
-		"CustomerID": "Unilever",
+		"Id": "1",
+		"CustomerId": "Unilever",
 		"Rule": {
-			"ProductID": "Classic",
+			"ProductId": "Classic",
 			"Type": "BuyXGetYFree",
 			"Parameters": {
 				"Buy": 3,
@@ -14,10 +14,10 @@
 	},
 
 	{
-		"ID": "2",
-		"CustomerID": "Apple",
+		"Id": "2",
+		"CustomerId": "Apple",
 		"Rule": {
-			"ProductID": "Standout",
+			"ProductId": "Standout",
 			"Type": "QuantityDiscount",
 			"Parameters": {
 				"NewPrice": 299.99,
@@ -28,10 +28,10 @@
 	},
 
 	{
-		"ID": "3",
-		"CustomerID": "Nike",
+		"Id": "3",
+		"CustomerId": "Nike",
 		"Rule": {
-			"ProductID": "Premium",
+			"ProductId": "Premium",
 			"Type": "QuantityDiscount",
 			"Parameters": {
 				"NewPrice": 379.99,
@@ -42,10 +42,10 @@
 	},
 
 	{
-		"ID": "4",
-		"CustomerID": "Ford",
+		"Id": "4",
+		"CustomerId": "Ford",
 		"Rule": {
-			"ProductID": "Classic",
+			"ProductId": "Classic",
 			"Type": "BuyXGetYFree",
 			"Parameters": {
 				"Buy": 5,
@@ -56,10 +56,10 @@
 	},
 
 	{
-		"ID": "5",
-		"CustomerID": "Ford",
+		"Id": "5",
+		"CustomerId": "Ford",
 		"Rule": {
-			"ProductID": "Standout",
+			"ProductId": "Standout",
 			"Type": "QuantityDiscount",
 			"Parameters": {
 				"NewPrice": 309.99,
@@ -70,10 +70,10 @@
 	},
 
 	{
-		"ID": "6",
-		"CustomerID": "Ford",
+		"Id": "6",
+		"CustomerId": "Ford",
 		"Rule": {
-			"ProductID": "Premium",
+			"ProductId": "Premium",
 			"Type": "QuantityDiscount",
 			"Parameters": {
 				"NewPrice": 389.99,

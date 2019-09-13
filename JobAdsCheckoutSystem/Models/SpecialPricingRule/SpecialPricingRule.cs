@@ -6,9 +6,9 @@ namespace JobAdsCheckoutSystem
 {
 	public  class SpecialPricingRule : ISpecialPricingRule
 	{
-		public string ID { get; set; }
-		public string CustomerID { get; set; }
-		public string ProductID { get; set; }
+		public string Id { get; set; }
+		public string CustomerId { get; set; }
+		public string ProductId { get; set; }
 		public bool IsActive { get; set; }
 
 		public virtual void Apply(List<Product> products)
@@ -16,7 +16,7 @@ namespace JobAdsCheckoutSystem
 
 		public List<Product> GetMatchedProducts(List<Product> products)
 		{
-			return products.FindAll(X => string.Compare(X.ID, ProductID, StringComparison.OrdinalIgnoreCase) == 0
+			return products.FindAll(X => string.Compare(X.Code, ProductId, StringComparison.OrdinalIgnoreCase) == 0
 									   && string.IsNullOrEmpty(X.SpecialPricingRuleID));
 		}
 	}

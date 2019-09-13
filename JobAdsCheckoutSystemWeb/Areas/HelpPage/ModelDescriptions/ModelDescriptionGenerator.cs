@@ -19,7 +19,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
     public class ModelDescriptionGenerator
     {
         // Modify this to support more data annotation attributes.
-        private readonly IDictionary<Type, Func<object, string>> AnnotationTextGenerator = new Dictionary<Type, Func<object, string>>
+        private readonly Idictionary<Type, Func<object, string>> AnnotationTextGenerator = new Dictionary<Type, Func<object, string>>
         {
             { typeof(RequiredAttribute), a => "Required" },
             { typeof(RangeAttribute), a =>
@@ -61,7 +61,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
         };
 
         // Modify this to add more default documentations.
-        private readonly IDictionary<Type, string> DefaultTypeDocumentation = new Dictionary<Type, string>
+        private readonly Idictionary<Type, string> DefaultTypeDocumentation = new Dictionary<Type, string>
         {
             { typeof(Int16), "integer" },
             { typeof(Int32), "integer" },
@@ -77,14 +77,14 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
             { typeof(Double), "decimal number" },
             { typeof(Decimal), "decimal number" },
             { typeof(String), "string" },
-            { typeof(Guid), "globally unique identifier" },
+            { typeof(GuId), "globally unique Identifier" },
             { typeof(TimeSpan), "time interval" },
             { typeof(DateTime), "date" },
             { typeof(DateTimeOffset), "date" },
             { typeof(Boolean), "boolean" },
         };
 
-        private Lazy<IModelDocumentationProvider> _documentationProvider;
+        private Lazy<IModelDocumentationProvIder> _documentationProvIder;
 
         public ModelDescriptionGenerator(HttpConfiguration config)
         {
@@ -93,17 +93,17 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
                 throw new ArgumentNullException("config");
             }
 
-            _documentationProvider = new Lazy<IModelDocumentationProvider>(() => config.Services.GetDocumentationProvider() as IModelDocumentationProvider);
+            _documentationProvIder = new Lazy<IModelDocumentationProvIder>(() => config.Services.GetDocumentationProvIder() as IModelDocumentationProvIder);
             GeneratedModels = new Dictionary<string, ModelDescription>(StringComparer.OrdinalIgnoreCase);
         }
 
         public Dictionary<string, ModelDescription> GeneratedModels { get; private set; }
 
-        private IModelDocumentationProvider DocumentationProvider
+        private IModelDocumentationProvIder DocumentationProvIder
         {
             get
             {
-                return _documentationProvider.Value;
+                return _documentationProvIder.Value;
             }
         }
 
@@ -126,7 +126,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
             {
                 if (modelType != modelDescription.ModelType)
                 {
-                    throw new InvalidOperationException(
+                    throw new InvalIdOperationException(
                         String.Format(
                             CultureInfo.CurrentCulture,
                             "A model description could not be created. Duplicate model name '{0}' was found for types '{1}' and '{2}'. " +
@@ -163,7 +163,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
                 }
                 if (genericArguments.Length == 2)
                 {
-                    Type dictionaryType = typeof(IDictionary<,>).MakeGenericType(genericArguments);
+                    Type dictionaryType = typeof(Idictionary<,>).MakeGenericType(genericArguments);
                     if (dictionaryType.IsAssignableFrom(modelType))
                     {
                         return GenerateDictionaryModelDescription(modelType, genericArguments[0], genericArguments[1]);
@@ -188,7 +188,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
                 return GenerateDictionaryModelDescription(modelType, typeof(string), typeof(string));
             }
 
-            if (typeof(IDictionary).IsAssignableFrom(modelType))
+            if (typeof(Idictionary).IsAssignableFrom(modelType))
             {
                 return GenerateDictionaryModelDescription(modelType, typeof(object), typeof(object));
             }
@@ -201,7 +201,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
             return GenerateComplexTypeModelDescription(modelType);
         }
 
-        // Change this to provide different name for the member.
+        // Change this to provIde different name for the member.
         private static string GetMemberName(MemberInfo member, bool hasDataContractAttribute)
         {
             JsonPropertyAttribute jsonProperty = member.GetCustomAttribute<JsonPropertyAttribute>();
@@ -256,15 +256,15 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
             {
                 return documentation;
             }
-            if (DocumentationProvider != null)
+            if (DocumentationProvIder != null)
             {
-                documentation = DocumentationProvider.GetDocumentation(type);
+                documentation = DocumentationProvIder.GetDocumentation(type);
             }
 
             return documentation;
         }
 
-        private void GenerateAnnotations(MemberInfo property, ParameterDescription propertyModel)
+        private voId GenerateAnnotations(MemberInfo property, ParameterDescription propertyModel)
         {
             List<ParameterAnnotation> annotations = new List<ParameterAnnotation>();
 
@@ -343,9 +343,9 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
                         Name = GetMemberName(property, hasDataContractAttribute)
                     };
 
-                    if (DocumentationProvider != null)
+                    if (DocumentationProvIder != null)
                     {
-                        propertyModel.Documentation = DocumentationProvider.GetDocumentation(property);
+                        propertyModel.Documentation = DocumentationProvIder.GetDocumentation(property);
                     }
 
                     GenerateAnnotations(property, propertyModel);
@@ -364,9 +364,9 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
                         Name = GetMemberName(field, hasDataContractAttribute)
                     };
 
-                    if (DocumentationProvider != null)
+                    if (DocumentationProvIder != null)
                     {
-                        propertyModel.Documentation = DocumentationProvider.GetDocumentation(field);
+                        propertyModel.Documentation = DocumentationProvIder.GetDocumentation(field);
                     }
 
                     complexModelDescription.Properties.Add(propertyModel);
@@ -409,9 +409,9 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
                         Name = field.Name,
                         Value = field.GetRawConstantValue().ToString()
                     };
-                    if (DocumentationProvider != null)
+                    if (DocumentationProvIder != null)
                     {
-                        enumValue.Documentation = DocumentationProvider.GetDocumentation(field);
+                        enumValue.Documentation = DocumentationProvIder.GetDocumentation(field);
                     }
                     enumDescription.Values.Add(enumValue);
                 }

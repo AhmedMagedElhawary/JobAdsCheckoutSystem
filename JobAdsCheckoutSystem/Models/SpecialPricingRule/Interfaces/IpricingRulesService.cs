@@ -6,6 +6,6 @@ namespace JobAdsCheckoutSystem
 	{
 		List<ISpecialPricingRule> GetSpecialPricingRules();
 		List<ISpecialPricingRule> GetActiveSpecialPricingRules();
-		List<ISpecialPricingRule> GetActiveSpecialPricingRules(string customerID);
+		List<ISpecialPricingRule> GetActiveSpecialPricingRules(string customerId);
 	}
 }

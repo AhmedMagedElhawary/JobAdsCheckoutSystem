@@ -16,23 +16,23 @@ namespace JobAdsCheckoutSystemWeb.Controllers
 		}
 
 		// GET api/values/5
-		public string Get(int id)
+		public string Get(int Id)
 		{
 			return "value";
 		}
 
 		// POST api/values
-		public void Post([FromBody]string value)
+		public voId Post([FromBody]string value)
 		{
 		}
 
 		// PUT api/values/5
-		public void Put(int id, [FromBody]string value)
+		public voId Put(int Id, [FromBody]string value)
 		{
 		}
 
 		// DELETE api/values/5
-		public void Delete(int id)
+		public voId Delete(int Id)
 		{
 		}
 	}

@@ -29,10 +29,10 @@ namespace JobAdsCheckoutSystem
 				.Where(X => ((SpecialPricingRule)X).IsActive).ToList();
 		}
 
-		public  List<ISpecialPricingRule> GetActiveSpecialPricingRules(string customerID)
+		public  List<ISpecialPricingRule> GetActiveSpecialPricingRules(string customerId)
 		{
 			return GetActiveSpecialPricingRules()
-				.Where(X => string.Compare(((SpecialPricingRule)X).CustomerID, customerID, StringComparison.OrdinalIgnoreCase) == 0).ToList();
+				.Where(X => string.Compare(((SpecialPricingRule)X).CustomerId, customerId, StringComparison.OrdinalIgnoreCase) == 0).ToList();
 		}
 	}
 }

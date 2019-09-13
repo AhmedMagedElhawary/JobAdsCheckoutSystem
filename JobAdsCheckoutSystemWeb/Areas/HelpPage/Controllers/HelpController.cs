@@ -27,8 +27,8 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.DocumentationProvider = Configuration.Services.GetDocumentationProvider();
-            return View(Configuration.Services.GetApiExplorer().ApiDescriptions);
+            ViewBag.DocumentationProvIder = Configuration.Services.GetDocumentationProvIder();
+            return View(Configuration.Services.GetApiExplorer().ApIdescriptions);
         }
 
         public ActionResult Api(string apiId)

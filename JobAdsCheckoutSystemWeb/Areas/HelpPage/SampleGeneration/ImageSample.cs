@@ -22,18 +22,18 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
 
         public string Src { get; private set; }
 
-        public override bool Equals(object obj)
+        public overrIde bool Equals(object obj)
         {
             ImageSample other = obj as ImageSample;
             return other != null && Src == other.Src;
         }
 
-        public override int GetHashCode()
+        public overrIde int GetHashId()
         {
-            return Src.GetHashCode();
+            return Src.GetHashId();
         }
 
-        public override string ToString()
+        public overrIde string ToString()
         {
             return Src;
         }

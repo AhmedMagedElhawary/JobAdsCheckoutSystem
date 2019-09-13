@@ -14,7 +14,7 @@ namespace JobAdsCheckoutSystem
 			List<Product> matchedProducts = GetMatchedProducts(products);
 			if(matchedProducts.Count() >= MinimumQuantity)
 			{
-				matchedProducts.ToList().ForEach(X => X.SpecialPricingRuleID = ID);
+				matchedProducts.ToList().ForEach(X => X.SpecialPricingRuleID = Id);
 				matchedProducts.ToList().ForEach(X => X.privilegedPrice = NewPrice);
 			}
 

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="JobAdsCheckoutSystemWeb.WebApiApplication" Language="C#" %>
+﻿<%@ Application Idbehind="Global.asax.cs" Inherits="JobAdsCheckoutSystemWeb.WebApiApplication" Language="C#" %>

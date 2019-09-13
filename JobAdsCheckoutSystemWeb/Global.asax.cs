@@ -11,7 +11,7 @@ namespace JobAdsCheckoutSystemWeb
 {
 	public class WebApiApplication : System.Web.HttpApplication
 	{
-		protected void Application_Start()
+		protected voId Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();
 			GlobalConfiguration.Configure(WebApiConfig.Register);

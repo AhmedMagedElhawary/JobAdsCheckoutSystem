@@ -5,13 +5,13 @@ namespace JobAdsCheckoutSystemWeb.Migrations
     
     public partial class Initial : DbMigration
     {
-        public override void Up()
+        public overrIde voId Up()
         {
             CreateTable(
                 "dbo.Products",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
+                        Id = c.GuId(nullable: false),
                         Name = c.String(),
                         Price = c.Double(nullable: false),
                         Description = c.String(),
@@ -21,7 +21,7 @@ namespace JobAdsCheckoutSystemWeb.Migrations
             
         }
         
-        public override void Down()
+        public overrIde voId Down()
         {
             DropTable("dbo.Products");
         }

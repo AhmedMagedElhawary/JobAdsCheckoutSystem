@@ -7,7 +7,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage.ModelDescriptions
 {
     internal static class ModelNameHelper
     {
-        // Modify this to provide custom model name mapping.
+        // Modify this to provIde custom model name mapping.
         public static string GetModelName(Type type)
         {
             ModelNameAttribute modelNameAttribute = type.GetCustomAttribute<ModelNameAttribute>();

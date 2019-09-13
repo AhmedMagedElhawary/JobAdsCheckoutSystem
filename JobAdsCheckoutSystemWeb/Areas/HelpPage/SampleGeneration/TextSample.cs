@@ -18,18 +18,18 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
 
         public string Text { get; private set; }
 
-        public override bool Equals(object obj)
+        public overrIde bool Equals(object obj)
         {
             TextSample other = obj as TextSample;
             return other != null && Text == other.Text;
         }
 
-        public override int GetHashCode()
+        public overrIde int GetHashId()
         {
-            return Text.GetHashCode();
+            return Text.GetHashId();
         }
 
-        public override string ToString()
+        public overrIde string ToString()
         {
             return Text;
         }

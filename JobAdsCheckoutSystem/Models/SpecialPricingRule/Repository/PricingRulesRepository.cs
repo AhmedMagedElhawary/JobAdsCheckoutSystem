@@ -1,4 +1,6 @@
-﻿using JobAdsCheckoutSystem.Resources;
+﻿
+using JobAdsCheckoutSystem.Data;
+using JobAdsCheckoutSystem.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +11,7 @@ namespace JobAdsCheckoutSystem
 		public List<ISpecialPricingRule> GetSpecialPricingRules()
 		{
 			var deserializedRules =
-				JsonService.JsonResourceDeserializer(Properties.Resources.SpecialPricingRules);
+				AppJsonContext.JsonResourceDeserializer(Properties.Resources.SpecialPricingRules);
 
 			var specialPricingRules = new List<ISpecialPricingRule>();
 			deserializedRules.ToList().ForEach(X => specialPricingRules.Add(MapRule(X)));
@@ -24,9 +26,9 @@ namespace JobAdsCheckoutSystem
 				case "BuyXGetYFree":
 					return new BuyXGetYFree()
 					{
-						ID = deserializedRule.ID,
-						CustomerID = deserializedRule.CustomerID,
-						ProductID = deserializedRule.Rule.ProductID,
+						Id = deserializedRule.Id,
+						CustomerId = deserializedRule.CustomerId,
+						ProductId = deserializedRule.Rule.ProductId,
 						Buy = (int)deserializedRule.Rule.Parameters.Buy,
 						Charge = (int)deserializedRule.Rule.Parameters.Charge,
 						IsActive = (bool)deserializedRule.IsActive
@@ -35,9 +37,9 @@ namespace JobAdsCheckoutSystem
 				case "QuantityDiscount":
 					return new QuantityDiscount()
 					{
-						ID = deserializedRule.ID,
-						CustomerID = deserializedRule.CustomerID,
-						ProductID = deserializedRule.Rule.ProductID,
+						Id = deserializedRule.Id,
+						CustomerId = deserializedRule.CustomerId,
+						ProductId = deserializedRule.Rule.ProductId,
 						NewPrice = (double)deserializedRule.Rule.Parameters.NewPrice,
 						MinimumQuantity = (int)deserializedRule.Rule.Parameters.MinimumQuantity,
 						IsActive = (bool)deserializedRule.IsActive
@@ -46,7 +48,7 @@ namespace JobAdsCheckoutSystem
 				default:
 					return new SpecialPricingRule()
 					{
-						ID = deserializedRule.ID,
+						Id = deserializedRule.Id,
 						IsActive = false
 					};
 			}

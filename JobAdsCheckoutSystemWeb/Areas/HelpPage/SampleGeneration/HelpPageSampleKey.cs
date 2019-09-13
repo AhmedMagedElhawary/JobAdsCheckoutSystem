@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
 {
     /// <summary>
-    /// This is used to identify the place where the sample should be applied.
+    /// This is used to Identify the place where the sample should be applied.
     /// </summary>
     public class HelpPageSampleKey
     {
@@ -54,7 +54,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         {
             if (!Enum.IsDefined(typeof(SampleDirection), sampleDirection))
             {
-                throw new InvalidEnumArgumentException("sampleDirection", (int)sampleDirection, typeof(SampleDirection));
+                throw new InvalIdEnumArgumentException("sampleDirection", (int)sampleDirection, typeof(SampleDirection));
             }
             if (controllerName == null)
             {
@@ -130,7 +130,7 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
         /// </summary>
         public SampleDirection? SampleDirection { get; private set; }
 
-        public override bool Equals(object obj)
+        public overrIde bool Equals(object obj)
         {
             HelpPageSampleKey otherKey = obj as HelpPageSampleKey;
             if (otherKey == null)
@@ -146,27 +146,27 @@ namespace JobAdsCheckoutSystemWeb.Areas.HelpPage
                 ParameterNames.SetEquals(otherKey.ParameterNames);
         }
 
-        public override int GetHashCode()
+        public overrIde int GetHashId()
         {
-            int hashCode = ControllerName.ToUpperInvariant().GetHashCode() ^ ActionName.ToUpperInvariant().GetHashCode();
+            int hashId = ControllerName.ToUpperInvariant().GetHashId() ^ ActionName.ToUpperInvariant().GetHashId();
             if (MediaType != null)
             {
-                hashCode ^= MediaType.GetHashCode();
+                hashId ^= MediaType.GetHashId();
             }
             if (SampleDirection != null)
             {
-                hashCode ^= SampleDirection.GetHashCode();
+                hashId ^= SampleDirection.GetHashId();
             }
             if (ParameterType != null)
             {
-                hashCode ^= ParameterType.GetHashCode();
+                hashId ^= ParameterType.GetHashId();
             }
             foreach (string parameterName in ParameterNames)
             {
-                hashCode ^= parameterName.ToUpperInvariant().GetHashCode();
+                hashId ^= parameterName.ToUpperInvariant().GetHashId();
             }
 
-            return hashCode;
+            return hashId;
         }
     }
 }

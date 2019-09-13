@@ -33,12 +33,38 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <langVersion>8.0</langVersion>
+    <NullableContextOptions>enable </NullableContextOptions>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.SelfHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.SelfHost.5.2.7\lib\net45\System.Web.Http.SelfHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,18 +73,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Data\AppDbContext.cs" />
     <Compile Include="JobAdsCheckoutService.cs" />
-    <Compile Include="Products\Premium.cs" />
-    <Compile Include="Products\Standout.cs" />
-    <Compile Include="Products\Classic.cs" />
-    <Compile Include="Products\Product.cs" />
-    <Compile Include="Resources\JsonService.cs" />
-    <Compile Include="SpecialPricingRule\BuyXGetYFree2.cs" />
-    <Compile Include="SpecialPricingRule\Interfaces\IPricingRulesRepository.cs" />
-    <Compile Include="SpecialPricingRule\Interfaces\ISpecialPricingRule.cs" />
-    <Compile Include="SpecialPricingRule\Interfaces\IpricingRulesService.cs" />
-    <Compile Include="SpecialPricingRule\Repository\PricingRulesRepository.cs" />
-    <Compile Include="SpecialPricingRule\PricingRulesService.cs" />
+    <Compile Include="Migrations\201909120009075_initial.cs" />
+    <Compile Include="Migrations\201909120009075_initial.Designer.cs">
+      <DependentUpon>201909120009075_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Products\Premium.cs" />
+    <Compile Include="Models\Products\Standout.cs" />
+    <Compile Include="Models\Products\Classic.cs" />
+    <Compile Include="Models\Products\Product.cs" />
+    <Compile Include="Repositories\IProductRepository.cs" />
+    <Compile Include="Data\AppJsonContext.cs" />
+    <Compile Include="Models\SpecialPricingRule\BuyXGetYFree2.cs" />
+    <Compile Include="Models\SpecialPricingRule\Interfaces\IPricingRulesRepository.cs" />
+    <Compile Include="Models\SpecialPricingRule\Interfaces\ISpecialPricingRule.cs" />
+    <Compile Include="Models\SpecialPricingRule\Interfaces\IpricingRulesService.cs" />
+    <Compile Include="Models\SpecialPricingRule\Repository\PricingRulesRepository.cs" />
+    <Compile Include="Models\SpecialPricingRule\PricingRulesService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -66,17 +100,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SpecialPricingRule\QuantityDiscount.cs" />
-    <Compile Include="SpecialPricingRule\BuyXGetYFree.cs" />
-    <Compile Include="SpecialPricingRule\SpecialPricingRule.cs" />
+    <Compile Include="Models\SpecialPricingRule\QuantityDiscount.cs" />
+    <Compile Include="Models\SpecialPricingRule\BuyXGetYFree.cs" />
+    <Compile Include="Models\SpecialPricingRule\SpecialPricingRule.cs" />
+    <Compile Include="Repositories\SQLProductRepository.cs" />
+    <Compile Include="Services\IProductService.cs" />
+    <Compile Include="Repositories\JsonProductRepository.cs" />
+    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="WebApiConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Resources\Products.json" />
-    <None Include="Resources\SpecialPricingRules.json" />
+    <None Include="JsonDB\Products.json" />
+    <None Include="JsonDB\SpecialPricingRules.json" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909120009075_initial.resx">
+      <DependentUpon>201909120009075_initial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -7,16 +7,23 @@ namespace JobAdsCheckoutSystem
 {
 	public class JobAdsCheckoutService
 	{
-		public static double Checkout(string CustomerID, List<Product> Products)
+		public static double Checkout(string CustomerId, List<Product> Products)
 		{
-			var SpecialPricingRules = new PricingRulesService().GetActiveSpecialPricingRules(CustomerID);
+			Products = GetValidActiveProducts(Products);
+			
+			var SpecialPricingRules = new PricingRulesService().GetActiveSpecialPricingRules(CustomerId);
 			SpecialPricingRules.ForEach(X => X.Apply(Products));
 			return CalculateTotal(Products);
 		}
 
-		public static double Checkout(string CustomerID, List<Product> Products, IpricingRulesService pricingRulesService)
+		private static List<Product> GetValidActiveProducts(List<Product> products)
 		{
-			var SpecialPricingRules = pricingRulesService.GetActiveSpecialPricingRules(CustomerID);
+			return products.Where(X => X != null && X.IsActive ).ToList();
+		}
+
+		public static double Checkout(string CustomerId, List<Product> Products, IpricingRulesService pricingRulesService)
+		{
+			var SpecialPricingRules = pricingRulesService.GetActiveSpecialPricingRules(CustomerId);
 			SpecialPricingRules.ForEach(X => X.Apply(Products));
 			return CalculateTotal(Products);
 		}
