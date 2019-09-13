@@ -1,10 +1,10 @@
-﻿using JobAdsCheckoutSystem.Products;
+﻿using JobAdsCheckoutSystem.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace JobAdsCheckoutSystem
+namespace JobAdsCheckoutSystem.Models
 {
-	public class BuyXGetYFree : SpecialPricingRule, ISpecialPricingRule
+	public class SPRBuyXGetYFree : SPR
 	{
 		public int Buy { get; set; }
 		public int Charge { get; set; }

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using JobAdsCheckoutSystem.Products;
+using JobAdsCheckoutSystem.Models;
+using JobAdsCheckoutSystem.Services;
 
 namespace JobAdsCheckoutSystem
 {

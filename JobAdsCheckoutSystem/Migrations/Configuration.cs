@@ -1,6 +1,6 @@
 namespace JobAdsCheckoutSystem.Migrations
 {
-    using JobAdsCheckoutSystem.Products;
+    using JobAdsCheckoutSystem.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;

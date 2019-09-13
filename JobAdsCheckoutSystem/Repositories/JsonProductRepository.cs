@@ -1,5 +1,5 @@
 ﻿using JobAdsCheckoutSystem.Data;
-using JobAdsCheckoutSystem.Products;
+using JobAdsCheckoutSystem.Models;
 using System;
 using System.Linq;
 

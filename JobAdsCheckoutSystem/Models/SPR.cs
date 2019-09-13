@@ -1,18 +1,21 @@
-﻿using JobAdsCheckoutSystem.Products;
+﻿using JobAdsCheckoutSystem.Models;
 using System;
 using System.Collections.Generic;
 
-namespace JobAdsCheckoutSystem
+namespace JobAdsCheckoutSystem.Models
 {
-	public  class SpecialPricingRule : ISpecialPricingRule
+	//SpecialPricingRule
+	public abstract class SPR //: ISpecialPricingRule
 	{
 		public string Id { get; set; }
 		public string CustomerId { get; set; }
 		public string ProductId { get; set; }
 		public bool IsActive { get; set; }
 
-		public virtual void Apply(List<Product> products)
-		{}
+		//public virtual void Apply(List<Product> products)
+		//{}
+
+		public abstract void Apply(List<Product> products);
 
 		public List<Product> GetMatchedProducts(List<Product> products)
 		{

@@ -1,30 +1,32 @@
 ﻿
 using JobAdsCheckoutSystem.Data;
+using JobAdsCheckoutSystem.Models;
 using JobAdsCheckoutSystem.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace JobAdsCheckoutSystem
+namespace JobAdsCheckoutSystem.Repositories
 {
-	public class PricingRulesRepository : IPricingRulesRepository
+	public class JsonPricingRulesRepository : IPricingRulesRepository
 	{
-		public List<ISpecialPricingRule> GetSpecialPricingRules()
+		public List<SPR> GetSpecialPricingRules()
 		{
 			var deserializedRules =
 				AppJsonContext.JsonResourceDeserializer(Properties.Resources.SpecialPricingRules);
 
-			var specialPricingRules = new List<ISpecialPricingRule>();
+			var specialPricingRules = new List<SPR>();
 			deserializedRules.ToList().ForEach(X => specialPricingRules.Add(MapRule(X)));
+
 			return specialPricingRules;
 		}
 
 		#region Helper functions  
-		private static ISpecialPricingRule MapRule(dynamic deserializedRule)
+		private static SPR MapRule(dynamic deserializedRule)
 		{
 			switch (deserializedRule.Rule.Type)
 			{
 				case "BuyXGetYFree":
-					return new BuyXGetYFree()
+					return new SPRBuyXGetYFree()
 					{
 						Id = deserializedRule.Id,
 						CustomerId = deserializedRule.CustomerId,
@@ -35,7 +37,7 @@ namespace JobAdsCheckoutSystem
 					};
 
 				case "QuantityDiscount":
-					return new QuantityDiscount()
+					return new SPRQuantityDiscount()
 					{
 						Id = deserializedRule.Id,
 						CustomerId = deserializedRule.CustomerId,
@@ -46,11 +48,12 @@ namespace JobAdsCheckoutSystem
 					};
 
 				default:
-					return new SpecialPricingRule()
-					{
-						Id = deserializedRule.Id,
-						IsActive = false
-					};
+					return null;
+					//return new SpecialPricingRule()
+					//{
+					//	Id = deserializedRule.Id,
+					//	IsActive = false
+					//};
 			}
 		}
 		#endregion

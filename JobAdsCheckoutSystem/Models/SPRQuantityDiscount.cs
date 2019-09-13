@@ -1,10 +1,10 @@
-﻿using JobAdsCheckoutSystem.Products;
+﻿using JobAdsCheckoutSystem.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace JobAdsCheckoutSystem
+namespace JobAdsCheckoutSystem.Models
 {
-	public class QuantityDiscount : SpecialPricingRule, ISpecialPricingRule
+	public class SPRQuantityDiscount : SPR
 	{
 		public double NewPrice { get; set; }
 		public int MinimumQuantity { get; set; }

@@ -1,4 +1,4 @@
-﻿using JobAdsCheckoutSystem.Products;
+﻿using JobAdsCheckoutSystem.Models;
 
 namespace JobAdsCheckoutSystem.Services
 {

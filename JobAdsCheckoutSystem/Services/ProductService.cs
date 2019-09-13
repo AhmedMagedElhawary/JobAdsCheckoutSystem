@@ -1,4 +1,4 @@
-﻿using JobAdsCheckoutSystem.Products;
+﻿using JobAdsCheckoutSystem.Models;
 using JobAdsCheckoutSystem.Repositories;
 using System;
 using System.Collections.Generic;
