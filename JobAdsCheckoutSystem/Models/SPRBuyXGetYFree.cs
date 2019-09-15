@@ -14,7 +14,7 @@ namespace JobAdsCheckoutSystem.Models
 			var FreeCount = Buy - Charge;
 
 			List<Product> matchedProducts = GetMatchedProducts(products);
-			while (matchedProducts.Count() >= Buy)
+			while (matchedProducts.Count() >= Buy && Buy > 0)
 			{
 				matchedProducts.Take(Buy).ToList().ForEach(X => X.SpecialPricingRuleID = Id);
 				matchedProducts.Take(Buy).ToList().ForEach(X => X.privilegedPrice = X.Price);

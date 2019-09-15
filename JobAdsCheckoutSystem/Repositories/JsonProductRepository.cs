@@ -24,6 +24,7 @@ namespace JobAdsCheckoutSystem.Repositories
 
 			return new Product()
 			{
+				Id = new Guid(deserializedProduct.Id),
 				Code = deserializedProduct.Code,
 				Name = deserializedProduct.Name,
 				Price = (double)deserializedProduct.Price,

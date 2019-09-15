@@ -12,7 +12,7 @@ namespace JobAdsCheckoutSystem.Models
 		public override void Apply(List<Product> products)
 		{
 			var matchedProducts = GetMatchedProducts(products);
-			if (matchedProducts.Count() >= Buy)
+			if (matchedProducts.Count() >= Buy && Buy > 0)
 			{
 				var matchedBuyCount = matchedProducts.Count() - (matchedProducts.Count() % Buy);
 				var freeProductsCount = (matchedProducts.Count() - (matchedProducts.Count() % Buy)) * (Buy - Charge) / Buy;

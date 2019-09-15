@@ -61,10 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SpecialPricingRule\BuyXGetYFree2Test.cs" />
-    <Compile Include="SpecialPricingRule\BuyXGetYFreeTest.cs" />
-    <Compile Include="SpecialPricingRule\QuantityDiscountTest.cs" />
-    <Compile Include="SpecialPricingRule\PricingRulesServiceTest.cs" />
+    <Compile Include="Models\SPRBuyXGetYFree2Test.cs" />
+    <Compile Include="Models\SPRBuyXGetYFreeTest.cs" />
+    <Compile Include="Models\SPRQuantityDiscountTest.cs" />
+    <Compile Include="Services\PricingRulesServiceTest.cs" />
     <Compile Include="JobAdsCheckoutServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

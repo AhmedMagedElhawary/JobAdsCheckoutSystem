@@ -15,9 +15,7 @@ namespace JobAdsCheckoutSystemWebAPI.Controllers
 	public class CommaDelimitedArrayModelBinder : IModelBinder
 	{
 		public bool BindModel(HttpActionContext actionContext, ModelBindingContext bindingContext)
-		{
-			//var key = bindingContext.ModelName;
-			//http://localhost:8080/api/checkout?CutomerId=1&Products=2,10
+		{			
 			try
 			{
 				var CutomerId = bindingContext.ValueProvider.GetValue("CutomerId").AttemptedValue;
@@ -48,7 +46,7 @@ namespace JobAdsCheckoutSystemWebAPI.Controllers
     public class CheckoutController : ApiController
     {
 		[HttpGet]
-		//public IHttpActionResult Checkout([FromUri] ResourceQuery query)
+		//http://localhost:8080/api/checkout?CutomerId=1&Products=2,10
 		public IHttpActionResult Checkout([ModelBinder(typeof(CommaDelimitedArrayModelBinder))]ResourceQuery ResourceQuery)
 		{
 			try

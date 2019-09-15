@@ -3,6 +3,7 @@ using JobAdsCheckoutSystem.Repositories;
 using JobAdsCheckoutSystem.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http.SelfHost;
 
 namespace JobAdsCheckoutSystem
@@ -13,8 +14,8 @@ namespace JobAdsCheckoutSystem
 
 		static void Main(string[] args)
 		{
-			ConsoleMod();
-			//APIMod();
+			//ConsoleMod();
+			APIMod();
 		}
 
 		#region Console Mod
@@ -40,12 +41,7 @@ namespace JobAdsCheckoutSystem
 								 "Added: 'classic', 'standout', 'premium'",
 								 "Total expected: $987.97");
 
-			price = JobAdsCheckoutService.Checkout("UnderprivilegedCustomerId",
-												new List<Product>() {
-													GetProduct("Classic"),
-													GetProduct("Standout"),
-													GetProduct("Premium")
-																	});
+			price = Checkout("Anonymous",new List<string>(){"Classic","Standout","Premium"});
 			Console.WriteLine("Total calcualted: ${0}\n", price);
 		}
 
@@ -55,13 +51,8 @@ namespace JobAdsCheckoutSystem
 			Console.WriteLine("{0} \n{1} \n{2}", "Customer: Unilever",
 								 "SKUs Scanned: 'classic', 'classic', 'classic', 'premium'",
 								 "Total expected: $934.97");
-			price = JobAdsCheckoutService.Checkout("Unilever",
-									new List<Product>() {
-															GetProduct("Classic"),
-															GetProduct("Classic"),
-															GetProduct("Classic"),
-															GetProduct("Premium") }
-									);
+
+			price = Checkout("Unilever", new List<string>() { "Classic", "Classic", "Classic", "Premium" });
 			Console.WriteLine("Total calcualted: ${0}\n", price);
 		}
 
@@ -71,13 +62,8 @@ namespace JobAdsCheckoutSystem
 			Console.WriteLine("{0} \n{1} \n{2}", "Customer: Apple",
 					 "SKUs Scanned: 'standout', 'standout', 'standout', 'premium'",
 					 "Total expected: $1294.96");
-			price = JobAdsCheckoutService.Checkout("Apple",
-				new List<Product>() {
-															GetProduct("Standout"),
-															GetProduct("Standout"),
-															GetProduct("Standout"),
-															GetProduct("Premium")}
-										);
+
+			price = Checkout("Apple", new List<string>() { "Standout", "Standout", "Standout", "Premium" });
 			Console.WriteLine("Total calcualted: ${0}\n", price);
 		}
 
@@ -87,13 +73,8 @@ namespace JobAdsCheckoutSystem
 			Console.WriteLine("{0} \n{1} \n{2}", "Customer: Nike",
 					 "SKUs Scanned: 'premium', 'premium','premium','premium'",
 					 "Total expected: $1519.96");
-			price = JobAdsCheckoutService.Checkout("Nike",
-				new List<Product>() {
-															GetProduct("Premium"),
-															GetProduct("Premium"),
-															GetProduct("Premium"),
-															GetProduct("Premium")}
-							);
+
+			price = Checkout("Nike", new List<string>() { "Premium", "Premium", "Premium", "Premium" });
 			Console.WriteLine("Total calcualted: ${0}\n", price);
 		}
 
@@ -109,32 +90,17 @@ namespace JobAdsCheckoutSystem
 									(929.97)  3 standout with discounted price +
 									(789.98)  2 permium normal price 
 									= $4419.85");
-			price = JobAdsCheckoutService.Checkout("Ford",
-				new List<Product>() {
-															GetProduct("Classic"),
-															GetProduct("Classic"),
-															GetProduct("Standout"),
-															GetProduct("Classic"),
-															GetProduct("Classic"),
-															GetProduct("Premium"),
-															GetProduct("Classic"),
-															GetProduct("Classic"),
-															GetProduct("Standout"),
-															GetProduct("Classic"),
-															GetProduct("Classic"),
-															GetProduct("Standout"),
-															GetProduct("Classic"),
-															GetProduct("Premium"),
-															GetProduct("Classic"),
-															GetProduct("Classic"),
-															GetProduct("Classic"),
-}
-							);
+
+			price = Checkout("Ford", new List<string>() {	"Classic", "Classic", "Standout", "Classic",
+															"Classic", "Premium", "Classic", "Classic",
+															"Standout", "Classic", "Classic", "Standout",
+															"Standout", "Premium", "Classic", "Classic", "Classic"});
 			Console.WriteLine("Total calcualted: ${0}\n", price);
 		}
 		#endregion
 
 		#region API Mod
+		//http://localhost:8080/api/checkout?CutomerId=1&Products=2,10
 		static void APIMod()
 		{
 			var config = new HttpSelfHostConfiguration("http://localhost:8080");
@@ -149,14 +115,26 @@ namespace JobAdsCheckoutSystem
 		}
 		#endregion
 
-		private static Product GetProduct(string productCode)
+		private static double Checkout(string customerName, List<string> productsCodes)
 		{
 			if (JsonDBMod)
 			{
-				return new ProductService(new JsonProductRepository()).GetProduct(productCode);
-			}
+				var customerId = new CustomerService(new JsonCustomerRepository()).GeCustomer(customerName).Id;
+				List<Product> products = productsCodes.
+					Select(X => new ProductService(new JsonProductRepository()).GetProduct(X)).ToList();
 
-			return new ProductService(new SQLProductRepository()).GetProduct(productCode);
+				return new JobAdsCheckoutService(new PricingRulesService(new JsonPricingRulesRepository()))
+																					.Checkout(customerId, products);
+			}
+			else
+			{
+				var customerId = new CustomerService(new SQLCustomerRepository()).GeCustomer(customerName).Id;
+				List<Product> products = productsCodes.
+					Select(X => new ProductService(new SQLProductRepository()).GetProduct(X)).ToList();
+
+				return new JobAdsCheckoutService(new PricingRulesService(new SQLPricingRulesRepository()))
+																						.Checkout(customerId, products);
+			}
 		}
 	}
 }

@@ -1,0 +1,31 @@
+[
+	{
+		"Id": "9ef6ac0b-9f36-4db4-a498-0070a00b7af8",
+		"Name": "Unilever",
+		"IsActive": true
+	},
+
+	{
+		"Id": "09cef5ad-1d09-4580-ae4a-c5e6295899f3",
+		"Name": "Apple",
+		"IsActive": true
+	},
+
+	{
+		"Id": "7a766432-d19a-48f5-bcd7-49dc9ca179e7",
+		"Name": "Nike",
+		"IsActive": true
+	},
+
+	{
+		"Id": "b877256c-736b-43dc-9761-9b69c053bd01",
+		"Name": "Ford",
+		"IsActive": true
+	},
+
+	{
+		"Id": "3ec7201b-c3a2-4220-aeed-b5d0f2ac2b7d",
+		"Name": "Anonymous",
+		"IsActive": true
+	}
+]

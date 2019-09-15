@@ -81,14 +81,19 @@
       <DependentUpon>201909120009075_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Repositories\ICustomerRepository.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="Data\AppJsonContext.cs" />
     <Compile Include="Models\SPRBuyXGetYFree2.cs" />
     <Compile Include="Repositories\IPricingRulesRepository.cs" />
+    <Compile Include="Repositories\SQLCustomerRepository.cs" />
+    <Compile Include="Repositories\JsonCustomerRepository.cs" />
     <Compile Include="Repositories\SQLPricingRulesRepository.cs" />
     <Compile Include="Services\IpricingRulesService.cs" />
     <Compile Include="Repositories\JsonPricingRulesRepository.cs" />
+    <Compile Include="Services\ICustomerService.cs" />
     <Compile Include="Services\PricingRulesService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,11 +108,13 @@
     <Compile Include="Repositories\SQLProductRepository.cs" />
     <Compile Include="Services\IProductService.cs" />
     <Compile Include="Repositories\JsonProductRepository.cs" />
+    <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="WebApiConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="JsonDB\Customer.json" />
     <None Include="packages.config" />
     <None Include="JsonDB\Products.json" />
     <None Include="JsonDB\SpecialPricingRules.json" />

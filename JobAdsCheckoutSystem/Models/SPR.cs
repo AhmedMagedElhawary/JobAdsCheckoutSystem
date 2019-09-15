@@ -7,9 +7,9 @@ namespace JobAdsCheckoutSystem.Models
 	//SpecialPricingRule
 	public abstract class SPR //: ISpecialPricingRule
 	{
-		public string Id { get; set; }
-		public string CustomerId { get; set; }
-		public string ProductId { get; set; }
+		public Guid Id { get; set; }
+		public Guid CustomerId { get; set; }
+		public Guid ProductId { get; set; }
 		public bool IsActive { get; set; }
 
 		//public virtual void Apply(List<Product> products)
@@ -19,8 +19,7 @@ namespace JobAdsCheckoutSystem.Models
 
 		public List<Product> GetMatchedProducts(List<Product> products)
 		{
-			return products.FindAll(X => string.Compare(X.Code, ProductId, StringComparison.OrdinalIgnoreCase) == 0
-									   && string.IsNullOrEmpty(X.SpecialPricingRuleID));
+			return products.FindAll(X => X.Id== ProductId && X.SpecialPricingRuleID == null);
 		}
 	}
 }

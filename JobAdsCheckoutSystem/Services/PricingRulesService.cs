@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace JobAdsCheckoutSystem.Services
 {
-	public class PricingRulesService //: IpricingRulesService
+	public class PricingRulesService : IpricingRulesService
 	{
 		IPricingRulesRepository pricingRulesRepository;
 
@@ -26,16 +26,16 @@ namespace JobAdsCheckoutSystem.Services
 				.Where(X => X != null).ToList(); ;
 		}
 
-		public  List<SPR> GetActiveSpecialPricingRules()
+		public List<SPR> GetActiveSpecialPricingRules()
 		{
 			return GetSpecialPricingRules()
 				.Where(X => ((SPR)X).IsActive).ToList();
 		}
 
-		public  List<SPR> GetActiveSpecialPricingRules(string customerId)
+		public List<SPR> GetActiveSpecialPricingRules(Guid customerId)
 		{
 			return GetActiveSpecialPricingRules()
-				.Where(X => string.Compare(((SPR)X).CustomerId, customerId, StringComparison.OrdinalIgnoreCase) == 0).ToList();
+				.Where(X => X.CustomerId == customerId).ToList();
 		}
 	}
 }

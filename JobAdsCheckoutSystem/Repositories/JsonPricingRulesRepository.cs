@@ -2,6 +2,7 @@
 using JobAdsCheckoutSystem.Data;
 using JobAdsCheckoutSystem.Models;
 using JobAdsCheckoutSystem.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -28,9 +29,9 @@ namespace JobAdsCheckoutSystem.Repositories
 				case "BuyXGetYFree":
 					return new SPRBuyXGetYFree()
 					{
-						Id = deserializedRule.Id,
-						CustomerId = deserializedRule.CustomerId,
-						ProductId = deserializedRule.Rule.ProductId,
+						Id = new Guid(deserializedRule.Id),
+						CustomerId = new Guid(deserializedRule.CustomerId),
+						ProductId = new Guid(deserializedRule.Rule.ProductId),
 						Buy = (int)deserializedRule.Rule.Parameters.Buy,
 						Charge = (int)deserializedRule.Rule.Parameters.Charge,
 						IsActive = (bool)deserializedRule.IsActive
@@ -39,9 +40,9 @@ namespace JobAdsCheckoutSystem.Repositories
 				case "QuantityDiscount":
 					return new SPRQuantityDiscount()
 					{
-						Id = deserializedRule.Id,
-						CustomerId = deserializedRule.CustomerId,
-						ProductId = deserializedRule.Rule.ProductId,
+						Id = new Guid(deserializedRule.Id),
+						CustomerId = new Guid(deserializedRule.CustomerId),
+						ProductId = new Guid(deserializedRule.Rule.ProductId),
 						NewPrice = (double)deserializedRule.Rule.Parameters.NewPrice,
 						MinimumQuantity = (int)deserializedRule.Rule.Parameters.MinimumQuantity,
 						IsActive = (bool)deserializedRule.IsActive
