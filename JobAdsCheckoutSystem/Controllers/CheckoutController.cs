@@ -1,4 +1,8 @@
 ﻿//using JobAdsCheckoutSystemWeb.Data;
+using JobAdsCheckoutSystem;
+using JobAdsCheckoutSystem.Models;
+using JobAdsCheckoutSystem.Repositories;
+using JobAdsCheckoutSystem.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,12 +25,14 @@ namespace JobAdsCheckoutSystemWebAPI.Controllers
 				var CutomerId = bindingContext.ValueProvider.GetValue("CutomerId").AttemptedValue;
 				var Products = bindingContext.ValueProvider.GetValue("Products").AttemptedValue;
 
-				bindingContext.Model = new ResourceQuery { CutomerId = CutomerId,
+				bindingContext.Model = new ResourceQuery {	CutomerId = new Guid(CutomerId),
 															Products = Products
-																			.Split(',')
-																			.Select(X => X.Trim())
-																			.Where(X => !string.IsNullOrEmpty(X))
-																			.ToList()};
+															.Split(',')
+															.Select(X => new ProductService(new JsonProductRepository()).GetProduct(new Guid(X)))
+															.Where(X => X != null)
+															.ToList()
+														};
+
 				return true;
 			}
 			catch (Exception)
@@ -38,8 +44,8 @@ namespace JobAdsCheckoutSystemWebAPI.Controllers
 
 	public class ResourceQuery
 	{
-		public string CutomerId { get; set; }
-		public List<string> Products { get; set; }
+		public Guid CutomerId { get; set; }
+		public List<Product> Products { get; set; }
 	}
 
 	[EnableCors("*","*","*")]
@@ -47,14 +53,26 @@ namespace JobAdsCheckoutSystemWebAPI.Controllers
     {
 		[HttpGet]
 		//http://localhost:8080/api/checkout?CutomerId=1&Products=2,10
+
+
+		//http://localhost:8080/api/checkout?CutomerId=9ef6ac0b-9f36-4db4-a498-0070a00b7af8&Products=018a5e88-0f30-4409-b78c-2d8a824d70b7,018a5e88-0f30-4409-b78c-2d8a824d70b7,018a5e88-0f30-4409-b78c-2d8a824d70b7,c5b2084c-9bd7-400f-bf9a-9be14453c7c0
+		//"9ef6ac0b-9f36-4db4-a498-0070a00b7af8"
+		//"018a5e88-0f30-4409-b78c-2d8a824d70b7"
+		//"c5b2084c-9bd7-400f-bf9a-9be14453c7c0"
+
+		//Console.WriteLine("{0} \n{1} \n{2}", "Customer: Unilever",
+		//						 "SKUs Scanned: 'classic', 'classic', 'classic', 'premium'",
+		//						 "Total expected: $934.97");
+
 		public IHttpActionResult Checkout([ModelBinder(typeof(CommaDelimitedArrayModelBinder))]ResourceQuery ResourceQuery)
 		{
 			try
 			{
 				//using (var context = new AppDbContext())
 				{
-					//var total = query.CutomerId + query.Products.Sum();
-					var total = 0;
+					var total = new JobAdsCheckoutService(new PricingRulesService(new JsonPricingRulesRepository()))
+											.Checkout(ResourceQuery.CutomerId, ResourceQuery.Products);
+	
 					return Ok(total);
 				}
 			}

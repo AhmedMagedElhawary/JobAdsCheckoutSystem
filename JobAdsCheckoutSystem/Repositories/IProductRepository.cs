@@ -1,4 +1,5 @@
 ﻿using JobAdsCheckoutSystem.Models;
+using System;
 
 namespace JobAdsCheckoutSystem.Repositories
 {
@@ -6,5 +7,7 @@ namespace JobAdsCheckoutSystem.Repositories
 	{
 		#nullable enable
 		Product? GetProduct(string code);
+
+		Product? GetProduct(Guid Id);
 	}
 }

@@ -32,5 +32,30 @@ namespace JobAdsCheckoutSystem.Repositories
 				IsActive = (bool)deserializedProduct.IsActive
 			};
 		}
+
+#nullable enable
+		public Product? GetProduct(Guid Id)
+		{
+			var deserializedRules =
+				AppJsonContext.JsonResourceDeserializer(Properties.Resources.Products);
+
+			var deserializedProduct = deserializedRules.ToList().
+				FirstOrDefault(X => new Guid(X.Id) == Id);
+
+			if (deserializedProduct == null)
+			{
+				return null;
+			}
+
+			return new Product()
+			{
+				Id = new Guid(deserializedProduct.Id),
+				Code = deserializedProduct.Code,
+				Name = deserializedProduct.Name,
+				Price = (double)deserializedProduct.Price,
+				Description = deserializedProduct.Description,
+				IsActive = (bool)deserializedProduct.IsActive
+			};
+		}
 	}
 }

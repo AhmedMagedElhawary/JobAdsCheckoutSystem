@@ -26,5 +26,11 @@ namespace JobAdsCheckoutSystem.Services
 		{
 			return productRepository.GetProduct(code);
 		}
+
+		#nullable enable
+		public Product? GetProduct(Guid Id)
+		{
+			return productRepository.GetProduct(Id);
+		}
 	}
 }

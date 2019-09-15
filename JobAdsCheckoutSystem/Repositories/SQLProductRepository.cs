@@ -11,7 +11,12 @@ namespace JobAdsCheckoutSystem.Repositories
 		#nullable enable
 		public Product? GetProduct(string code)
 		{
-			return null;
+			throw new NotImplementedException();
+		}
+
+		public Product? GetProduct(Guid Id)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
