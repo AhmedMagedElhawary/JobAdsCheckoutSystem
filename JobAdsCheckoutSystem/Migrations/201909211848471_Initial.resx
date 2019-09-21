@@ -20,10 +20,10 @@
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
     <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime enIdd serialized .NET Framework object]</value>
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
     <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime enIdd string representing a byte array form of the .NET Framework object]</value>
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
                 
@@ -47,17 +47,17 @@
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then enIdd with base64 encoding.
+            : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then enIdd with base64 encoding.
+            : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
     value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
-            : and then enIdd with base64 encoding.
+            : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Target" xml:space="preserve">
-    <value>H4sIAAAAAAAEAM1X227bOBB9X6D/IPCpBVIzSV92A7mFaydFduskqNL2maLGNlGKVHkJ7G/bh/2k/YWOrLt8b7uLIkAgj2bOnBnOhfr373/CN8tUBk9grNBqSC4G5yQAxXUi1HxIvJu9/J28ef3st/A6SZfBp0rvVa6HlsoOycK57IpSyxeQMjtIBTfa6pkbcJ1Slmh6eX7+B724oIAQBLGCIPzglRMprH/gz7FWHDLnmZzqBKQt5fgmWqMGdywFmzEOQ/KnjkeJHS+Af9HeRSvrIB1MmGMkGEnBkFAEckYCppR2zCHdq48WIme0mkcZCph8XGWAejMmLZRhXDXqx0Z0fplHRBvDCop763R6IuDFqzJFtG/+XYkmdQoxideYbLfKo14nckgejE48dyTo+7oaS5PrbU/zZ4gHxQENSoSzYJveWV0oWE/531kw9tJ5A0MF3hkmz4IHH0vB/4LVo/4Caqi8lG3OyBrfdQQoQq8ZGLf6ALMyktuEBLRrR/uGtVnLpgjynRf4fIe+WSyhrgi61zz/XwFgWWGjkGDKlu9Bzd1iSPCRBDdiCUklKVE/KoF9hUbO+INOHozgtZeJxmTByUQnYLkRWVFD/zHfWzviTjzVlN9qLYGpA5xD2pTmZsHiVHBMKDClj1GWTeJcCMttpYtdXlavLTl3GRegEbhuE1gSNCSK4TGo+2Mb2ZpWM6VoMaaqcUZ3zLNwyrIM89+ab6UkiIrhNn4Znd7uaYFBud3S9TXb2pPThs2h9xZdI9MbYazLZ2nM8qMaJ+mGWucQdiS4ctXLc7+bm7RXBvlzYbRzytdn00NrcnmD4aWg3DpSqEk1U2/Dcr1nmGRmy6AYa+lTtWvY7LMu5kTbvpAcj1AOgTZEKToeozME2kidF8fjNY3eyUwt3UQKae9g+nVANwqhN9D7hbWvKfsqtfe6OXtNGJYNcfjmsdEhhQoJMEVPIsm7o12o0Vc5lgLjbRSmTIkZWFfsPIJb/7J3a/l1bhDU2kQed4343/e2V+KrB8woMpoJMD+0w9UTM3zBzPOULV+0kU7e0zOpmfsZa/qHKPVXcSwOcTptDW8uiqP27L41WzTSkCSxRtYFz2Y9f+cS3uzrkLa/O0JMvJg3EPlXiAKen0MDWuncqpmu8oyhtRlVKr1jmIJjCWZoZLBGGXf4moO16+vXJyY9qlynMSS36t67zLuRtZDGctWON6T7/a9vGl3O4f26kuzPCAFpCgwB7tVbL2RS877ZUkI7IPJieQcoXw8ivH4i3HxVI91pdSRQmb4JZKDyvn+ENJMIZu9VxPJiP50bXhjfw5zxVTWed4McPohu2sOJYHPDUltiNPb5tzTNP6ZffwOzrfHhfg8AAA==</value>
+    <value>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</value>
   </data>
   <data name="DefaultSchema" xml:space="preserve">
     <value>dbo</value>

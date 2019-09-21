@@ -6,8 +6,8 @@ namespace JobAdsCheckoutSystem.Models
 {
 	public class SPRBuyXGetYFree2 : SPR
 	{
-		public int Buy { get; set; }
-		public int Charge { get; set; }
+		//public int Buy { get; set; }
+		//public int Charge { get; set; }
 
 		public override void Apply(List<Product> products)
 		{

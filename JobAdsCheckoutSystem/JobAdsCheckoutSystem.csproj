@@ -76,11 +76,12 @@
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Data\AppDbContext.cs" />
     <Compile Include="JobAdsCheckoutService.cs" />
-    <Compile Include="Migrations\201909120009075_initial.cs" />
-    <Compile Include="Migrations\201909120009075_initial.Designer.cs">
-      <DependentUpon>201909120009075_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201909211848471_Initial.cs" />
+    <Compile Include="Migrations\201909211848471_Initial.Designer.cs">
+      <DependentUpon>201909211848471_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CheckoutData.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
@@ -120,8 +121,8 @@
     <None Include="JsonDB\SpecialPricingRules.json" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909120009075_initial.resx">
-      <DependentUpon>201909120009075_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909211848471_Initial.resx">
+      <DependentUpon>201909211848471_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

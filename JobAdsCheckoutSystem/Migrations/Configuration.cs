@@ -1,6 +1,6 @@
 namespace JobAdsCheckoutSystem.Migrations
 {
-    using JobAdsCheckoutSystem.Models;
+    using JobAdsCheckoutSystem.Services;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -19,7 +19,9 @@ namespace JobAdsCheckoutSystem.Migrations
 
 			//  You can use the DbSet<T>.AddOrUpdate() helper extension method 
 			//  to avoid creating duplicate seed data.
-			context.Products.Add(new Product() { Id = Guid.NewGuid(), Name = "Classic Ad", Price = 269.99, Description = "Offers the most basic level of advertisement.", IsActive = true });
+			context.Products.AddOrUpdate(new ProductService().GetProducts().ToArray());
+			context.Customers.AddOrUpdate(new CustomerService().GeCustomers().ToArray());
+			context.Rules.AddOrUpdate(new PricingRulesService().GetSpecialPricingRules().ToArray());
 		}
 	}
 }

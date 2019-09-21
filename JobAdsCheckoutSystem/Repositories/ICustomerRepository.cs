@@ -1,4 +1,5 @@
-﻿using JobAdsCheckoutSystem.Models;
+﻿using System.Collections.Generic;
+using JobAdsCheckoutSystem.Models;
 
 namespace JobAdsCheckoutSystem.Repositories
 {
@@ -6,5 +7,6 @@ namespace JobAdsCheckoutSystem.Repositories
 	{
 		#nullable enable
 		public Customer? GetCustomer(string name);
+		List<Customer> GeCustomers();
 	}
 }

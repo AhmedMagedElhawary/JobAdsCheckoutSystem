@@ -1,6 +1,7 @@
 ﻿using JobAdsCheckoutSystem.Data;
 using JobAdsCheckoutSystem.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace JobAdsCheckoutSystem.Repositories
@@ -9,12 +10,17 @@ namespace JobAdsCheckoutSystem.Repositories
 	{
 
 		#nullable enable
-		public Product? GetProduct(string code)
+		//public Product? GetProduct(string code)
+		//{
+		//	throw new NotImplementedException();
+		//}
+
+		public Product? GetProduct(Guid Id)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Product? GetProduct(Guid Id)
+		public List<Product> GetAllProducts()
 		{
 			throw new NotImplementedException();
 		}

@@ -21,16 +21,21 @@ namespace JobAdsCheckoutSystem.Services
 			this.productRepository = productRepository;
 		}
 
-		#nullable enable
-		public Product? GetProduct(string code)
-		{
-			return productRepository.GetProduct(code);
-		}
+#nullable enable
+		//public Product? GetProduct(string code)
+		//{
+		//	return productRepository.GetProduct(code);
+		//}
 
-		#nullable enable
+#nullable enable
 		public Product? GetProduct(Guid Id)
 		{
 			return productRepository.GetProduct(Id);
+		}
+
+		public List<Product> GetProducts()
+		{
+			return productRepository.GetAllProducts();
 		}
 	}
 }

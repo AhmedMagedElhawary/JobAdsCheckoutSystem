@@ -11,11 +11,16 @@ namespace JobAdsCheckoutSystem
 	class Program
 	{
 		public static bool JsonDBMod { get; private set; }
-
+		//Products
+		 static readonly Guid Classic = new Guid("018a5e88-0f30-4409-b78c-2d8a824d70b7");
+		static readonly Guid Standout = new Guid("9c3c4f04-ddc2-4647-9aa3-a86cba651666");
+		static readonly Guid Premium = new Guid("c5b2084c-9bd7-400f-bf9a-9be14453c7c0");
+		
+			
 		static void Main(string[] args)
 		{
-			//ConsoleMod();
-			APIMod();
+			ConsoleMod();
+			//APIMod();
 		}
 
 		#region Console Mod
@@ -40,8 +45,7 @@ namespace JobAdsCheckoutSystem
 			Console.WriteLine("{0} \n{1} \n{2}", "Customer: default Id",
 								 "Added: 'classic', 'standout', 'premium'",
 								 "Total expected: $987.97");
-
-			price = Checkout("Anonymous",new List<string>(){"Classic","Standout","Premium"});
+			price = Checkout("Anonymous",new List<Guid>(){Classic,Standout,Premium});
 			Console.WriteLine("Total calcualted: ${0}\n", price);
 		}
 
@@ -52,7 +56,7 @@ namespace JobAdsCheckoutSystem
 								 "SKUs Scanned: 'classic', 'classic', 'classic', 'premium'",
 								 "Total expected: $934.97");
 
-			price = Checkout("Unilever", new List<string>() { "Classic", "Classic", "Classic", "Premium" });
+			price = Checkout("Unilever", new List<Guid>() { Classic, Classic, Classic, Premium});
 			Console.WriteLine("Total calcualted: ${0}\n", price);
 		}
 
@@ -63,7 +67,7 @@ namespace JobAdsCheckoutSystem
 					 "SKUs Scanned: 'standout', 'standout', 'standout', 'premium'",
 					 "Total expected: $1294.96");
 
-			price = Checkout("Apple", new List<string>() { "Standout", "Standout", "Standout", "Premium" });
+			price = Checkout("Apple", new List<Guid>() { Standout, Standout, Standout, Premium});
 			Console.WriteLine("Total calcualted: ${0}\n", price);
 		}
 
@@ -74,7 +78,7 @@ namespace JobAdsCheckoutSystem
 					 "SKUs Scanned: 'premium', 'premium','premium','premium'",
 					 "Total expected: $1519.96");
 
-			price = Checkout("Nike", new List<string>() { "Premium", "Premium", "Premium", "Premium" });
+			price = Checkout("Nike", new List<Guid>() { Premium, Premium, Premium, Premium });
 			Console.WriteLine("Total calcualted: ${0}\n", price);
 		}
 
@@ -91,10 +95,10 @@ namespace JobAdsCheckoutSystem
 									(789.98)  2 permium normal price 
 									= $4419.85");
 
-			price = Checkout("Ford", new List<string>() {	"Classic", "Classic", "Standout", "Classic",
-															"Classic", "Premium", "Classic", "Classic",
-															"Standout", "Classic", "Classic", "Standout",
-															"Standout", "Premium", "Classic", "Classic", "Classic"});
+			price = Checkout("Ford", new List<Guid>() {	Classic, Classic, Standout, Classic,
+															Classic, Premium, Classic, Classic,
+															Standout, Classic, Classic, Standout,
+															Standout, Premium, Classic, Classic, Classic});
 			Console.WriteLine("Total calcualted: ${0}\n", price);
 		}
 		#endregion
@@ -115,25 +119,23 @@ namespace JobAdsCheckoutSystem
 		}
 		#endregion
 
-		private static double Checkout(string customerName, List<string> productsCodes)
+		private static double Checkout(string customerName, List<Guid> productsId)
 		{
 			if (JsonDBMod)
 			{
 				var customerId = new CustomerService(new JsonCustomerRepository()).GeCustomer(customerName).Id;
-				List<Product> products = productsCodes.
-					Select(X => new ProductService(new JsonProductRepository()).GetProduct(X)).ToList();
-
-				return new JobAdsCheckoutService(new PricingRulesService(new JsonPricingRulesRepository()))
-																					.Checkout(customerId, products);
+				var checkOutData = new CheckoutData(customerId, productsId);
+				return new JobAdsCheckoutService(	new PricingRulesService(new JsonPricingRulesRepository()),
+													new ProductService(new JsonProductRepository()))
+																					.Checkout(checkOutData);
 			}
 			else
 			{
 				var customerId = new CustomerService(new SQLCustomerRepository()).GeCustomer(customerName).Id;
-				List<Product> products = productsCodes.
-					Select(X => new ProductService(new SQLProductRepository()).GetProduct(X)).ToList();
-
-				return new JobAdsCheckoutService(new PricingRulesService(new SQLPricingRulesRepository()))
-																						.Checkout(customerId, products);
+				var checkOutData = new CheckoutData(customerId, productsId);
+				return new JobAdsCheckoutService(	new PricingRulesService(new SQLPricingRulesRepository()),
+													new ProductService(new SQLProductRepository()))
+																						.Checkout(checkOutData);
 			}
 		}
 	}

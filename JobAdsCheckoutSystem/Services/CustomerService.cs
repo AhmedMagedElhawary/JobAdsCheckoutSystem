@@ -27,5 +27,10 @@ namespace JobAdsCheckoutSystem.Services
 			return customerRepository.GetCustomer(name);
 		}
 
+		public List<Customer> GeCustomers()
+		{
+			return customerRepository.GeCustomers();
+		}
+
 	}
 }

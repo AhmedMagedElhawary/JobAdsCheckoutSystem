@@ -6,8 +6,8 @@ namespace JobAdsCheckoutSystem.Models
 {
 	public class SPRQuantityDiscount : SPR
 	{
-		public double NewPrice { get; set; }
-		public int MinimumQuantity { get; set; }
+		//public double NewPrice { get; set; }
+		//public int MinimumQuantity { get; set; }
 
 		public override void Apply(List<Product> products)
 		{

@@ -10,19 +10,28 @@ namespace JobAdsCheckoutSystem
 	public class JobAdsCheckoutService
 	{
 		IpricingRulesService pricingRulesService;
+		IProductService productService;
 
 		public JobAdsCheckoutService()
 		{
 			pricingRulesService = new PricingRulesService();
+			productService = new ProductService();
 		}
 
-		public JobAdsCheckoutService(IpricingRulesService pricingRulesService)
+		public JobAdsCheckoutService(IpricingRulesService pricingRulesService, IProductService productService)
 		{
 			this.pricingRulesService = pricingRulesService;
+			this.productService = productService;
 		}
 
-		public double Checkout(Guid CustomerId, List<Product> Products)
+		public double Checkout(CheckoutData data)
 		{
+			return Checkout(data.cutomerId, data.productsId);
+		}
+			public double Checkout(Guid CustomerId, List<Guid> ProductsId)
+		{
+			List<Product> Products = new List<Product>();
+			ProductsId.ForEach(x => Products.Add(productService.GetProduct(x)));
 			Products = GetValidActiveProducts(Products);
 
 			var SpecialPricingRules = pricingRulesService.GetActiveSpecialPricingRules(CustomerId);

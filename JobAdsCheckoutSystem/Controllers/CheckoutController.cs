@@ -25,10 +25,10 @@ namespace JobAdsCheckoutSystemWebAPI.Controllers
 				var CutomerId = bindingContext.ValueProvider.GetValue("CutomerId").AttemptedValue;
 				var Products = bindingContext.ValueProvider.GetValue("Products").AttemptedValue;
 
-				bindingContext.Model = new ResourceQuery {	CutomerId = new Guid(CutomerId),
-															Products = Products
+				bindingContext.Model = new CheckoutData {	cutomerId = new Guid(CutomerId),
+															productsId = Products
 															.Split(',')
-															.Select(X => new ProductService(new JsonProductRepository()).GetProduct(new Guid(X)))
+															.Select(X=> new Guid(X))
 															.Where(X => X != null)
 															.ToList()
 														};
@@ -42,11 +42,11 @@ namespace JobAdsCheckoutSystemWebAPI.Controllers
 		}
 	}
 
-	public class ResourceQuery
-	{
-		public Guid CutomerId { get; set; }
-		public List<Product> Products { get; set; }
-	}
+	//public class CheckoutData
+	//{
+	//	public Guid CutomerId { get; set; }
+	//	public List<Guid> ProductsId { get; set; }
+	//}
 
 	[EnableCors("*","*","*")]
     public class CheckoutController : ApiController
@@ -56,22 +56,19 @@ namespace JobAdsCheckoutSystemWebAPI.Controllers
 
 
 		//http://localhost:8080/api/checkout?CutomerId=9ef6ac0b-9f36-4db4-a498-0070a00b7af8&Products=018a5e88-0f30-4409-b78c-2d8a824d70b7,018a5e88-0f30-4409-b78c-2d8a824d70b7,018a5e88-0f30-4409-b78c-2d8a824d70b7,c5b2084c-9bd7-400f-bf9a-9be14453c7c0
-		//"9ef6ac0b-9f36-4db4-a498-0070a00b7af8"
-		//"018a5e88-0f30-4409-b78c-2d8a824d70b7"
-		//"c5b2084c-9bd7-400f-bf9a-9be14453c7c0"
-
 		//Console.WriteLine("{0} \n{1} \n{2}", "Customer: Unilever",
 		//						 "SKUs Scanned: 'classic', 'classic', 'classic', 'premium'",
 		//						 "Total expected: $934.97");
 
-		public IHttpActionResult Checkout([ModelBinder(typeof(CommaDelimitedArrayModelBinder))]ResourceQuery ResourceQuery)
+		public IHttpActionResult Checkout([ModelBinder(typeof(CommaDelimitedArrayModelBinder))]CheckoutData ResourceQuery)
 		{
 			try
 			{
 				//using (var context = new AppDbContext())
 				{
-					var total = new JobAdsCheckoutService(new PricingRulesService(new JsonPricingRulesRepository()))
-											.Checkout(ResourceQuery.CutomerId, ResourceQuery.Products);
+					var total = new JobAdsCheckoutService(	new PricingRulesService(new JsonPricingRulesRepository()),
+															new ProductService(new JsonProductRepository()))
+																.Checkout(ResourceQuery.cutomerId, ResourceQuery.productsId);
 	
 					return Ok(total);
 				}

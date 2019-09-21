@@ -1,6 +1,7 @@
 ﻿using JobAdsCheckoutSystem.Data;
 using JobAdsCheckoutSystem.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace JobAdsCheckoutSystem.Repositories
@@ -8,7 +9,7 @@ namespace JobAdsCheckoutSystem.Repositories
 	internal class JsonCustomerRepository : ICustomerRepository
 	{
 
-		#nullable enable
+#nullable enable
 		public Customer? GetCustomer(string name)
 		{
 			var deserializedRules =
@@ -28,6 +29,22 @@ namespace JobAdsCheckoutSystem.Repositories
 				Name = deserializedCustomer.Name,
 				IsActive = (bool)deserializedCustomer.IsActive
 			};
+		}
+
+		public List<Customer> GeCustomers()
+		{
+			var customers = new List<Customer>();
+			var deserializedRules =
+				AppJsonContext.JsonResourceDeserializer(Properties.Resources.Customer);
+
+			deserializedRules.ToList().ForEach(x => customers.Add(new Customer()
+			{
+				Id = new Guid(x.Id),
+				Name = x.Name,
+				IsActive = (bool)x.IsActive
+			}));
+
+			return customers;
 		}
 	}
 }
