@@ -21,7 +21,7 @@ namespace JobAdsCheckoutSystem.Migrations
 			//  to avoid creating duplicate seed data.
 			context.Products.AddOrUpdate(new ProductService().GetProducts().ToArray());
 			context.Customers.AddOrUpdate(new CustomerService().GeCustomers().ToArray());
-			context.Rules.AddOrUpdate(new PricingRulesService().GetSpecialPricingRules().ToArray());
+			context.SPR.AddOrUpdate(new PricingRulesService().GetSpecialPricingRules().ToArray());
 		}
 	}
 }

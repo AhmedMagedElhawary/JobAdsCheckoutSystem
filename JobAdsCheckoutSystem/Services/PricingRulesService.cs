@@ -23,7 +23,7 @@ namespace JobAdsCheckoutSystem.Services
 		public List<SPR> GetSpecialPricingRules()
 		{
 			return pricingRulesRepository.GetSpecialPricingRules()
-				.Where(X => X != null).ToList(); ;
+				.Where(X => X != null).ToList(); 
 		}
 
 		public List<SPR> GetActiveSpecialPricingRules()

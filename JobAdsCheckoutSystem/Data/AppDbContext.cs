@@ -15,6 +15,8 @@ namespace JobAdsCheckoutSystem.Data
 		}
 		public DbSet<Product> Products { get; set; }
 		public DbSet<Customer> Customers { get; set; }
-		public DbSet<SPR> Rules { get; set; }
+		public DbSet<SPR> SPR { get; set; }
+		public DbSet<SPRBuyXGetYFree> SPRBuyXGetYFree { get; set; }
+		public DbSet<SPRQuantityDiscount> SPRQuantityDiscount { get; set; }
 	}
 }

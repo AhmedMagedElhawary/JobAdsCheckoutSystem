@@ -2,6 +2,7 @@
 using JobAdsCheckoutSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace JobAdsCheckoutSystem.Repositories
@@ -10,14 +11,14 @@ namespace JobAdsCheckoutSystem.Repositories
 	{
 
 		#nullable enable
-		//public Product? GetProduct(string code)
-		//{
-		//	throw new NotImplementedException();
-		//}
-
 		public Product? GetProduct(Guid Id)
 		{
-			throw new NotImplementedException();
+			var ctx = new AppDbContext();
+			var product = ctx.Products
+				.SqlQuery("Select * from Products where Id=@Id", new SqlParameter("@Id", Id))
+				.FirstOrDefault();
+
+			return product;
 		}
 
 		public List<Product> GetAllProducts()

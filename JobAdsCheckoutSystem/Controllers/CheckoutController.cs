@@ -66,10 +66,9 @@ namespace JobAdsCheckoutSystemWebAPI.Controllers
 			{
 				//using (var context = new AppDbContext())
 				{
-					var total = new JobAdsCheckoutService(	new PricingRulesService(new JsonPricingRulesRepository()),
+					var total = new JobAdsCheckoutService(new PricingRulesService(new JsonPricingRulesRepository()),
 															new ProductService(new JsonProductRepository()))
 																.Checkout(ResourceQuery.cutomerId, ResourceQuery.productsId);
-	
 					return Ok(total);
 				}
 			}

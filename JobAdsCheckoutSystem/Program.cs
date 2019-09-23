@@ -26,12 +26,13 @@ namespace JobAdsCheckoutSystem
 		#region Console Mod
 		static void ConsoleMod()
 		{
-			JsonDBMod = true;
+			//JsonDBMod = true;
+			JsonDBMod = false;
 			Console.WriteLine("Console Demo with Json data layer\n");
-			CalculateScenarios1();
-			CalculateScenarios2();
-			CalculateScenarios3();
-			CalculateScenarios4();
+			//CalculateScenarios1();
+			//CalculateScenarios2();
+			//CalculateScenarios3();
+			//CalculateScenarios4();
 
 			Console.WriteLine("Extreme scenario \n");
 			CalculateScenarios5();
@@ -97,7 +98,7 @@ namespace JobAdsCheckoutSystem
 
 			price = Checkout("Ford", new List<Guid>() {	Classic, Classic, Standout, Classic,
 															Classic, Premium, Classic, Classic,
-															Standout, Classic, Classic, Standout,
+															Standout, Classic, Classic, Classic,
 															Standout, Premium, Classic, Classic, Classic});
 			Console.WriteLine("Total calcualted: ${0}\n", price);
 		}
