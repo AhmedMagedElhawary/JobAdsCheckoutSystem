@@ -35,6 +35,14 @@ namespace JobAdsCheckoutSystem
 			Products = GetValidActiveProducts(Products);
 
 			var SpecialPricingRules = pricingRulesService.GetActiveSpecialPricingRules(CustomerId);
+
+			//Why not get a better overview ?
+			//select Customers.Name, Products.Name, sprs.IsActive, SPRs.Buy, sprs.Charge, sprs.NewPrice, sprs.MinimumQuantity
+			//from sprs
+			//inner join Customers on Customers.id = CustomerId
+			//inner join Products on Products.Id = ProductId
+
+			//where customers.name = 'Ford'
 			SpecialPricingRules.ForEach(X => X.Apply(Products));
 			return CalculateTotal(Products);
 		}
