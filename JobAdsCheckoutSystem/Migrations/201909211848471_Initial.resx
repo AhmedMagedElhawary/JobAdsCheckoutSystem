@@ -117,14 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Customer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\JsonDB\Customer.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
   </data>
-  <data name="Products" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\JsonDB\Products.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SpecialPricingRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\JsonDB\SpecialPricingRules.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>

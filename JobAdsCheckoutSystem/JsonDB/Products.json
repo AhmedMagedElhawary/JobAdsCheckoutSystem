@@ -1,0 +1,28 @@
+[
+	{
+		"Id": "018a5e88-0f30-4409-b78c-2d8a824d70b7",
+		"Code": "Classic",
+		"Name": "Classic Ad",
+		"Price": 269.99,
+		"Description": "Offers the most basic level of advertisement.",
+		"IsActive": true
+	},
+
+	{
+		"Id": "9c3c4f04-ddc2-4647-9aa3-a86cba651666",
+		"Code": "Standout",
+		"Name": "Standout Ad",
+		"Price": 322.99,
+		"Description": "Allows advertisers to use a company logo and use a longer presentation text.",
+		"IsActive": true
+	},
+
+	{
+		"Id": "c5b2084c-9bd7-400f-bf9a-9be14453c7c0",
+		"Code": "Premium",
+		"Name": "Premium Ad",
+		"Price": 394.99,
+		"Description": "Same benefits as Standout Ad, but also puts the advertisement at the top of the results, allowing higher visibility.",
+		"IsActive": true
+	}
+]

@@ -1,0 +1,85 @@
+[
+	{
+		"Id": "89938f79-4c9a-47de-af11-7f294551b98c",
+		"CustomerId": "9ef6ac0b-9f36-4db4-a498-0070a00b7af8", //Unilever
+		"Rule": {
+			"ProductId": "018a5e88-0f30-4409-b78c-2d8a824d70b7", //Classic
+			"Type": "BuyXGetYFree",
+			"Parameters": {
+				"Buy": 3,
+				"Charge": 2
+			}
+		},
+		"IsActive": true
+	},
+
+	{
+		"Id": "fea7befa-c014-42d8-99b9-3934aaea2db7",
+		"CustomerId": "09cef5ad-1d09-4580-ae4a-c5e6295899f3", //Apple
+		"Rule": {
+			"ProductId": "9c3c4f04-ddc2-4647-9aa3-a86cba651666", //Standout
+			"Type": "QuantityDiscount",
+			"Parameters": {
+				"NewPrice": 299.99,
+				"MinimumQuantity": 1
+			}
+		},
+		"IsActive": true
+	},
+
+	{
+		"Id": "1e8b3d20-b4fc-4c14-92b6-53fb31ae78c1",
+		"CustomerId": "7a766432-d19a-48f5-bcd7-49dc9ca179e7", //Nike
+		"Rule": {
+			"ProductId": "c5b2084c-9bd7-400f-bf9a-9be14453c7c0", //Premium
+			"Type": "QuantityDiscount",
+			"Parameters": {
+				"NewPrice": 379.99,
+				"MinimumQuantity": 4
+			}
+		},
+		"IsActive": true
+	},
+
+	{
+		"Id": "c4eb00d4-8e95-4bbf-bd4c-54f293141c42",
+		"CustomerId": "b877256c-736b-43dc-9761-9b69c053bd01", //Ford
+		"Rule": {
+			"ProductId": "018a5e88-0f30-4409-b78c-2d8a824d70b7", //Classic
+			"Type": "BuyXGetYFree",
+			"Parameters": {
+				"Buy": 5,
+				"Charge": 4
+			}
+		},
+		"IsActive": true
+	},
+
+	{
+		"Id": "8e89fbda-ae80-4cbf-9ccd-2de476924a2f",
+		"CustomerId": "b877256c-736b-43dc-9761-9b69c053bd01", //Ford
+		"Rule": {
+			"ProductId": "9c3c4f04-ddc2-4647-9aa3-a86cba651666", //Standout
+			"Type": "QuantityDiscount",
+			"Parameters": {
+				"NewPrice": 309.99,
+				"MinimumQuantity": 1
+			}
+		},
+		"IsActive": true
+	},
+
+	{
+		"Id": "40b0be64-ef44-4e7b-a97a-a0a09ac7d1f4",
+		"CustomerId": "b877256c-736b-43dc-9761-9b69c053bd01", //Ford
+		"Rule": {
+			"ProductId": "c5b2084c-9bd7-400f-bf9a-9be14453c7c0", //Premium
+			"Type": "QuantityDiscount",
+			"Parameters": {
+				"NewPrice": 389.99,
+				"MinimumQuantity": 3
+			}
+		},
+		"IsActive": true
+	}
+]
