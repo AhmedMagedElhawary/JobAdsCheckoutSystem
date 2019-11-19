@@ -19,20 +19,20 @@ namespace JobAdsCheckoutSystem
 			
 		static void Main(string[] args)
 		{
-			ConsoleMod();
-			//APIMod();
+			//ConsoleMod();
+			APIMod();
 		}
 
 		#region Console Mod
 		static void ConsoleMod()
 		{
-			//JsonDBMod = true;
-			JsonDBMod = false;
+			JsonDBMod = true;
+			//JsonDBMod = false;
 			Console.WriteLine("Console Demo with Json data layer\n");
-			//CalculateScenarios1();
-			//CalculateScenarios2();
-			//CalculateScenarios3();
-			//CalculateScenarios4();
+			CalculateScenarios1();
+			CalculateScenarios2();
+			CalculateScenarios3();
+			CalculateScenarios4();
 
 			Console.WriteLine("Extreme scenario \n");
 			CalculateScenarios5();

@@ -28,14 +28,14 @@ namespace JobAdsCheckoutSystem
 		{
 			return Checkout(data.cutomerId, data.productsId);
 		}
-			public double Checkout(Guid CustomerId, List<Guid> ProductsId)
+
+		public double Checkout(Guid CustomerId, List<Guid> ProductsId)
 		{
 			List<Product> Products = new List<Product>();
-			ProductsId.ForEach(x => Products.Add(productService.GetProduct(x)));
+			ProductsId.ForEach(x => Products.Add(productService.GetProduct(x))); // add all then filter !, is there a way to do in one go ?
 			Products = GetValidActiveProducts(Products);
 
 			var SpecialPricingRules = pricingRulesService.GetActiveSpecialPricingRules(CustomerId);
-
 			//Why not get a better overview ?
 			//select Customers.Name, Products.Name, sprs.IsActive, SPRs.Buy, sprs.Charge, sprs.NewPrice, sprs.MinimumQuantity
 			//from sprs

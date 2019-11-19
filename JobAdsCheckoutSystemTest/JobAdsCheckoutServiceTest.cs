@@ -28,8 +28,13 @@ namespace JobAdsCheckoutSystemTest
 				.Setup(m => m.GetSpecialPricingRules())
 				.Returns(noSpecialPricingRule);
 
+			var iProductRepositoryMock = new Mock<IProductRepository>();
+			iProductRepositoryMock
+				.Setup(m => m.GetAllProducts())
+				.Returns(noProducts);
+
 			// Act
-			var result = new JobAdsCheckoutService(new PricingRulesService(ipricingRulesRepositoryMock.Object)).Checkout(noSpecialPricingRuleCustomerId, noProducts);
+			var result = new JobAdsCheckoutService(new PricingRulesService(ipricingRulesRepositoryMock.Object), new ProductService(iProductRepositoryMock.Object)).Checkout(noSpecialPricingRuleCustomerId, noProducts.Select(x=> x.Id).ToList());
 
 			// Assert
 			Assert.AreEqual(0, result);
@@ -48,8 +53,13 @@ namespace JobAdsCheckoutSystemTest
 				.Setup(m => m.GetSpecialPricingRules())
 				.Returns(specialPricingRule);
 
+			var iProductRepositoryMock = new Mock<IProductRepository>();
+			iProductRepositoryMock
+				.Setup(m => m.GetAllProducts())
+				.Returns(noProducts);
+
 			// Act
-			var result = new JobAdsCheckoutService(new PricingRulesService(ipricingRulesRepositoryMock.Object)).Checkout(specialPricingRuleCustomerId, noProducts);
+			var result = new JobAdsCheckoutService(new PricingRulesService(ipricingRulesRepositoryMock.Object), new ProductService(iProductRepositoryMock.Object)).Checkout(specialPricingRuleCustomerId, noProducts.Select(X=> X.Id).ToList());
 
 			// Assert
 			Assert.AreEqual(0, result);
@@ -71,8 +81,13 @@ namespace JobAdsCheckoutSystemTest
 				.Setup(m => m.GetSpecialPricingRules())
 				.Returns(noSpecialPricingRule);
 
+			var iProductRepositoryMock = new Mock<IProductRepository>();
+			iProductRepositoryMock
+				.Setup(m => m.GetAllProducts())
+				.Returns(products);
+
 			// Act
-			var result = new JobAdsCheckoutService(new PricingRulesService(ipricingRulesRepositoryMock.Object)).Checkout(noSpecialPricingRuleCustomerId, products);
+			var result = new JobAdsCheckoutService(new PricingRulesService(ipricingRulesRepositoryMock.Object), new ProductService(iProductRepositoryMock.Object)).Checkout(noSpecialPricingRuleCustomerId, products.Select(X=> X.Id).ToList());
 
 			// Assert
 			Assert.AreEqual(products.Sum(X => X.Price), result);
@@ -83,7 +98,7 @@ namespace JobAdsCheckoutSystemTest
 		{
 			// Arrange
 			var specialPricingRuleCustomerId = Guid.NewGuid();
-			var specialPricingRule = new List<SPR>() { new SPRBuyXGetYFree() { Id = Guid.NewGuid(), IsActive = true, CustomerId= specialPricingRuleCustomerId, ProductId = Guid.NewGuid() } };
+			var specialPricingRule = new List<SPR>() { new SPRBuyXGetYFree() { Id = Guid.NewGuid(), IsActive = true, CustomerId = specialPricingRuleCustomerId, ProductId = Guid.NewGuid() } };
 			var products = new List<Product>() {    new Product(),
 													new Product(),
 													new Product()
@@ -94,8 +109,13 @@ namespace JobAdsCheckoutSystemTest
 				.Setup(m => m.GetSpecialPricingRules())
 				.Returns(specialPricingRule);
 
+			var iProductRepositoryMock = new Mock<IProductRepository>();
+			iProductRepositoryMock
+				.Setup(m => m.GetAllProducts())
+				.Returns(products);
+
 			// Act
-			var result = new JobAdsCheckoutService(new PricingRulesService(ipricingRulesRepositoryMock.Object)).Checkout(specialPricingRuleCustomerId, products);
+			var result = new JobAdsCheckoutService(new PricingRulesService(ipricingRulesRepositoryMock.Object), new ProductService(iProductRepositoryMock.Object)).Checkout(specialPricingRuleCustomerId, products.Select(X=> X.Id).ToList());
 
 			// Assert
 			Assert.AreEqual(products.Sum(X => X.Price), result);
