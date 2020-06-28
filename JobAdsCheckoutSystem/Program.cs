@@ -19,8 +19,8 @@ namespace JobAdsCheckoutSystem
 			
 		static void Main(string[] args)
 		{
-			//ConsoleMod();
-			APIMod();
+			ConsoleMod();
+			//APIMod();
 		}
 
 		#region Console Mod
@@ -37,7 +37,7 @@ namespace JobAdsCheckoutSystem
 			Console.WriteLine("Extreme scenario \n");
 			CalculateScenarios5();
 
-			Console.ReadKey();
+			Console.ReadLine();
 		}
 
 		private static void CalculateScenarios1()

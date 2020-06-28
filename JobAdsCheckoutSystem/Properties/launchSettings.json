@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "JobAdsCheckoutSystem": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
